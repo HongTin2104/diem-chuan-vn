@@ -3,10 +3,13 @@
 [![CI](https://github.com/HongTin2104/diem-chuan-vn/actions/workflows/ci.yml/badge.svg)](https://github.com/HongTin2104/diem-chuan-vn/actions/workflows/ci.yml)
 [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-blue)](data/DATASET.md#license)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-green)](LICENSE)
+[![Demo](https://img.shields.io/badge/demo-streamlit-ff4b4b)](https://diem-chuan-vn.streamlit.app/)
 
 Open, multi-year dataset of Vietnamese university admission cut-off scores (điểm chuẩn), where
 every row links to the university's own announcement, plus a small tool that suggests programmes
 for a given score and says why.
+
+**Try it online:** https://diem-chuan-vn.streamlit.app/
 
 ![Suggestions for a score of 26.5](docs/suggest.png)
 
@@ -145,6 +148,8 @@ list universities and years that are still missing.
 - A cut-off is the lowest admitted score of one year. It does not predict the next year.
 
 ## Tiếng Việt
+
+Dùng thử: https://diem-chuan-vn.streamlit.app/
 
 Bộ dữ liệu điểm chuẩn đại học nhiều năm, mở theo giấy phép CC BY 4.0, mỗi dòng có link tới thông báo
 chính thức của trường. Kèm theo là công cụ gợi ý ngành theo điểm, có giải thích vì sao gợi ý: chênh
