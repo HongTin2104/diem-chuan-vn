@@ -38,3 +38,7 @@ pythonpath = ["src"]
 [tool.coverage.run]
 source = ["diem_chuan"]
 branch = true
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
