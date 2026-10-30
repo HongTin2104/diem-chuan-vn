@@ -69,6 +69,15 @@ Run `python -m diem_chuan.validate` to check the files. Current coverage:
 | BKA (HUST) | 2023-2026 | thpt, tsa (2023-2026); xttn_chung_chi, xttn_ho_so (2025-2026) |
 | KHA (NEU) | 2025-2026 | thpt: one score per programme, converted to the 30-point scale and used for every method |
 
+## Single-file export
+
+`python -m diem_chuan.export` (needs `pip install -e ".[export]"`) writes every score row to
+`dist/hf/diem_chuan.parquet`, with `university_name`, `university_short_name`, `city`,
+`method_name_vi`, `method_name_en`, `source_page_url`, `source_file_url` and `source_accessed`
+joined in. Next to it, `README.md` is a Hugging Face dataset card whose counts are computed from
+the data. The export stops with an error if a score refers to a university, method or source that
+is not listed.
+
 ## Limitations
 
 - Only a few universities so far; contributions are welcome (see CONTRIBUTING.md).
