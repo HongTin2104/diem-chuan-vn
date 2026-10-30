@@ -38,3 +38,13 @@ def test_lookup_shows_history_and_sources():
     headers = [s.value for s in at.subheader]
     assert any("thang 30" in h for h in headers)
     assert any("thông báo chính thức" in m.value for m in at.markdown)
+
+
+def test_lookup_joins_a_programme_whose_code_changed():
+    at = run()
+    at.selectbox(key="lookup_uni").set_value("BKA").run()
+    at.selectbox(key="lookup_programme").set_value("MS5").run()
+    assert not at.exception
+    history = [t.value for t in at.dataframe if "Thang" in t.value]
+    codes = {code for table in history for code in table["Mã"]}
+    assert codes == {"CH3", "MS5"}

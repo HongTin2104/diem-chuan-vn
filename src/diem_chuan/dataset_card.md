@@ -49,6 +49,7 @@ df = pd.read_parquet("hf://datasets/$hf_repo/$parquet")
 | `year` | 2025 | admission year |
 | `major_code` | 7480101 | programme code **as printed by the university** |
 | `major_name` | Khoa học Máy tính | name as printed |
+| `programme` | 7480101 | the programme's current code, the same in every year even when `major_code` changed |
 | `method` | thpt | admission method key |
 | `method_name_vi`, `method_name_en` | Điểm thi tốt nghiệp THPT | |
 | `subject_groups` | A00 A01 D01 | space-separated; empty when the source does not list them |
@@ -69,8 +70,8 @@ is listed in
 ## Limitations
 
 - Compare scores only within the same `method` and `scale`.
-- Codes and names are kept as published. A programme whose code changes between years appears under
-  both codes.
+- Codes and names are kept as published. When a programme changes code, `programme` holds its
+  current code in every year; group by `programme` to follow it over time.
 - Only some universities are covered so far. Contributions are welcome on GitHub.
 
 ## License and citation

@@ -45,14 +45,24 @@ class Suggestion:
         return "; ".join(parts) + "."
 
 
+def _with_programme(df: pd.DataFrame) -> pd.DataFrame:
+    # load_scores() adds `programme`; a frame built by hand may not have it.
+    return df if "programme" in df else df.assign(programme=df["major_code"])
+
+
 def history(df: pd.DataFrame, university: str, major_code: str, method: str) -> pd.DataFrame:
-    """Cut-offs of one programme over the years, oldest first."""
-    rows = df[
-        (df["university"] == university)
-        & (df["major_code"] == major_code)
-        & (df["method"] == method)
-    ]
-    return rows.sort_values("year")[["year", "score", "scale", "subject_groups", "note"]]
+    """Cut-offs of one programme over the years, oldest first, across code changes.
+
+    `major_code` may be any code the programme has had; each row keeps the code it was
+    published under.
+    """
+    df = _with_programme(df)
+    rows = df[df["university"] == university]
+    known = rows.loc[rows["major_code"] == major_code, "programme"]
+    programme = known.iloc[0] if len(known) else major_code
+    rows = rows[(rows["programme"] == programme) & (rows["method"] == method)]
+    columns = ["year", "major_code", "score", "scale", "subject_groups", "note"]
+    return rows.sort_values("year")[columns]
 
 
 def _trend(scores: pd.Series, years: pd.Series) -> float | None:
@@ -82,18 +92,20 @@ def suggest(
 
     Sorted from the most competitive programme the score can reach down to the safest.
     """
+    df = _with_programme(df)
     rows = df[(df["method"] == method) & (df["scale"] == scale)]
     if universities:
         rows = rows[rows["university"].isin(universities)]
-    # Programmes missing from a university's latest year were closed or renamed, so their
-    # last cut-off is out of date.
+    # Programmes missing from a university's latest year were closed, so their last cut-off is
+    # out of date. Programmes that changed code are grouped under their current code.
     latest = rows[rows["year"] == rows.groupby("university")["year"].transform("max")]
-    current = set(zip(latest["university"], latest["major_code"], strict=True))
+    current = set(zip(latest["university"], latest["programme"], strict=True))
 
     suggestions = []
-    for (university, code), group in rows.groupby(["university", "major_code"]):
-        if (university, code) not in current:
+    for (university, programme), group in rows.groupby(["university", "programme"]):
+        if (university, programme) not in current:
             continue
+        code = programme
         # A programme can be listed once per subject group; its cut-off is the lowest one.
         per_year = group.groupby("year")["score"].min()
         latest_year = int(per_year.index.max())

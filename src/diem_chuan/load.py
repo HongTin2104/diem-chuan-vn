@@ -33,8 +33,20 @@ def score_files(data_dir: Path = DATA_DIR) -> list[Path]:
     return sorted((data_dir / "scores").glob("*.csv"))
 
 
+def load_programme_aliases(data_dir: Path = DATA_DIR) -> pd.DataFrame:
+    """Old programme codes and the current code of the same programme. The file is optional."""
+    path = data_dir / "programme_aliases.csv"
+    if not path.exists():
+        return pd.DataFrame(columns=["university", "code", "same_as"], dtype=str)
+    return pd.read_csv(path, **_READ)
+
+
 def load_scores(data_dir: Path = DATA_DIR) -> pd.DataFrame:
-    """All score rows, one file per university, with a `university` column added."""
+    """All score rows, one file per university.
+
+    Adds `university`, and `programme`: the programme's current code, so that the years before
+    and after a code change can be joined. `major_code` stays as published.
+    """
     frames = []
     for path in score_files(data_dir):
         df = pd.read_csv(path, **_READ)
@@ -46,4 +58,10 @@ def load_scores(data_dir: Path = DATA_DIR) -> pd.DataFrame:
     df["year"] = df["year"].astype(int)
     df["score"] = df["score"].astype(float)
     df["scale"] = df["scale"].astype(float)
+    aliases = load_programme_aliases(data_dir)
+    keys = zip(aliases["university"], aliases["code"], strict=True)
+    current = dict(zip(keys, aliases["same_as"], strict=True))
+    df["programme"] = [
+        current.get((u, c), c) for u, c in zip(df["university"], df["major_code"], strict=True)
+    ]
     return df

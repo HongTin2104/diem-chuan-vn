@@ -8,6 +8,7 @@ Cut-off scores (điểm chuẩn) of Vietnamese universities, as published by eac
 |---|---|---|
 | `universities.csv` | university | `code` is the ministry code (BKA, QSC, ...) |
 | `methods.csv` | admission method | `thpt`, `dgnl_hcm`, `xt_tong_hop`, ... |
+| `programme_aliases.csv` | old programme code | `code` was published before `same_as`, the current code of the same programme; the validator checks both exist and do not overlap in time |
 | `subject_groups.csv` | subject group (tổ hợp) | `A00` = `Toán; Vật lý; Hóa học`, with a link to an official page that defines it |
 | `sources.csv` | official announcement | page link, links to the files (images/PDF, space-separated) if any, date accessed |
 | `scores/<CODE>.csv` | year × major × method × subject groups | one file per university |
@@ -36,7 +37,8 @@ Cut-off scores (điểm chuẩn) of Vietnamese universities, as published by eac
   read a second time from enlarged crops of the image; where an aggregator has the same year, the
   two are compared. The second read has caught real typing errors (HUST 2024, FL1).
 - Codes, names and scores are kept as published. Codes that change between years (for example
-  `7480104_TT` in 2021-2025 and `7480104TT` in 2026, or HUST `TE-EP` and `TEEP`) are not merged yet.
+  `7480104_TT` in 2021-2025 and `7480104TT` in 2026, or HUST `TE-EP` and `TEEP`) are linked in
+  `programme_aliases.csv`; `load_scores()` adds a `programme` column with the current code.
   "(mới)" after a 2026 HUST programme name is moved to `note`.
 - Scores include priority and bonus points when the source says so (UIT does, for all years).
 - NEU (2025-2026) publishes a single cut-off per programme on the 30-point exam scale that applies to

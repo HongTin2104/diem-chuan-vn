@@ -134,7 +134,7 @@ python -m diem_chuan.export    # writes dist/hf/diem_chuan.parquet and a Hugging
 
 ```
 data/
-  universities.csv  methods.csv  sources.csv  subject_groups.csv
+  universities.csv  methods.csv  sources.csv  subject_groups.csv  programme_aliases.csv
   scores/<CODE>.csv     one file per university
   DATASET.md            data card
 src/diem_chuan/
@@ -165,8 +165,9 @@ in [ROADMAP.md](ROADMAP.md); each release is a milestone with issues you can pic
 - Values typed from images can still contain errors the second read missed. Please open an issue
   with the source link if you find one.
 - Subject groups are only stored when the announcement lists them.
-- Programme codes that change between years (`7480104_TT` and `7480104TT`) are not linked yet, so
-  their history is split in two.
+- Programme codes that change between years (`7480104_TT` and `7480104TT`) are linked through
+  `data/programme_aliases.csv`, which has to be kept up to date by hand. A programme that changes
+  both its code and its name is only linked once someone adds it there.
 - A cut-off is the lowest admitted score of one year. It does not predict the next year.
 
 ## Tiếng Việt

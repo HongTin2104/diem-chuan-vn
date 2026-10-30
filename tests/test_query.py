@@ -70,6 +70,46 @@ def test_history_is_sorted():
     assert list(h["score"]) == [26.0, 27.0]
 
 
+RENAMED = frame(
+    [
+        ("AAA", 2024, "IT_OLD", "CNTT", "thpt", 25.0, 30),
+        ("AAA", 2025, "IT_OLD", "CNTT", "thpt", 26.0, 30),
+        ("AAA", 2026, "IT", "Công nghệ thông tin", "thpt", 27.0, 30),
+    ]
+).assign(programme="IT")
+
+
+@pytest.mark.parametrize("code", ["IT_OLD", "IT"])
+def test_history_joins_a_code_change(code):
+    h = history(RENAMED, "AAA", code, "thpt")
+    assert list(h["year"]) == [2024, 2025, 2026]
+    assert list(h["major_code"]) == ["IT_OLD", "IT_OLD", "IT"]
+
+
+def test_suggest_keeps_the_history_of_a_renamed_programme():
+    [it] = suggest(RENAMED, 27.0)
+    assert (it.major_code, it.major_name, it.years_seen) == ("IT", "Công nghệ thông tin", 3)
+    assert it.trend == pytest.approx(1.0)
+
+
+def test_history_of_an_unknown_code_is_empty():
+    assert history(DF, "AAA", "NOPE", "thpt").empty
+
+
+def test_real_code_changes_share_a_programme():
+    df = load_scores()
+    uit = df[(df["university"] == "QSC") & (df["programme"] == "7480104TT")]
+    assert set(uit["major_code"]) == {"7480104_TT", "7480104TT"}
+
+
+@pytest.mark.parametrize(("old", "new"), [("CH3", "MS5"), ("TE-EP", "TEEP"), ("TE-E2", "TEE2")])
+def test_real_code_changes_are_joined(old, new):
+    # HUST kept the same methods across its code changes, so one history spans both codes.
+    h = history(load_scores(), "BKA", new, "thpt")
+    assert h["year"].min() == 2023 and h["year"].max() == 2026
+    assert set(h["major_code"]) == {old, new}
+
+
 def test_suggest_on_real_data():
     got = suggest(load_scores(), 27.0)
     assert got, "the committed data should give suggestions for a 27"

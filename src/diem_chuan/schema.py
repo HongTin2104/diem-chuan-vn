@@ -5,6 +5,7 @@ import re
 UNIVERSITY_COLUMNS = ["code", "name", "short_name", "city", "ownership", "website"]
 METHOD_COLUMNS = ["method", "name_vi", "name_en"]
 SUBJECT_GROUP_COLUMNS = ["code", "subjects", "source_url"]
+ALIAS_COLUMNS = ["university", "code", "same_as"]
 SOURCE_COLUMNS = ["id", "university", "years", "page_url", "file_url", "format", "accessed"]
 SCORE_COLUMNS = [
     "year",
