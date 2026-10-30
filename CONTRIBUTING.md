@@ -3,6 +3,8 @@
 Thanks for helping. Data is the most useful contribution: one university and one year is a
 complete pull request, and you do not need to write code for it.
 
+By taking part you agree to the [code of conduct](CODE_OF_CONDUCT.md).
+
 *Tiếng Việt ở cuối trang.*
 
 ## Add a university or a year

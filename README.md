@@ -126,6 +126,7 @@ src/diem_chuan/
   sources/              extractors for machine-readable announcements
   query.py              history and suggestions
 app/app.py              Streamlit demo
+notebooks/01_explore.ipynb  first look at the data (EDA)
 tests/
 ```
 
@@ -157,7 +158,8 @@ lệch so với điểm chuẩn năm gần nhất và xu hướng tăng giảm q
 
 **Dùng làm tài liệu tham khảo cho đồ án:**
 
-- Đồ án *phân tích dữ liệu*: dùng thẳng các file CSV trong `data/scores/`, ví dụ so sánh xu hướng
+- Đồ án *phân tích dữ liệu*: bắt đầu từ `notebooks/01_explore.ipynb` (`pip install -e ".[notebook]"`),
+  hoặc dùng thẳng các file CSV trong `data/scores/`, ví dụ so sánh xu hướng
   điểm chuẩn khối ngành CNTT và kinh tế, hoặc tác động của việc đổi phương thức xét tuyển.
 - Đồ án *thu thập dữ liệu*: xem `src/diem_chuan/crawl.py` (tôn trọng robots.txt, có delay, có cache)
   và `src/diem_chuan/sources/bka.py` (đọc bảng HTML).
