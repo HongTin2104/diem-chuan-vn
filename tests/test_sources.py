@@ -68,3 +68,18 @@ def test_main_writes_rows(tmp_path, monkeypatch, capsys):
     assert main(["bka-2023"]) == 0
     assert calls == [("BKA", "bka-2023")]
     assert "1 rows written to data/scores/BKA.csv" in capsys.readouterr().out
+
+
+def test_bka_rows_2023_reads_both_tables(monkeypatch):
+    def table(score):
+        cells = "".join(f"<th>{h}</th>" for h in bka.HEADER)
+        row = f"<td>1</td><td>IT1</td><td>Khoa học Máy tính</td><td>A00</td><td>{score}</td>"
+        return f"<table><tr>{cells}</tr><tr>{row}</tr></table>"
+
+    page = "<table><tr><td>menu</td></tr></table>" + table("83,5") + table("29,42")
+    monkeypatch.setattr(bka, "fetch", lambda url: page.encode())
+    rows = bka.rows_2023()
+    assert [(r["method"], r["score"], r["scale"]) for r in rows] == [
+        ("thpt", "29.42", "30"),
+        ("tsa", "83.5", "100"),
+    ]

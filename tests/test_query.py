@@ -85,3 +85,13 @@ def test_cli_prints_suggestions(capsys):
     assert out.count("[") == 2
     assert "BKA" in out
     assert out.rstrip().endswith("programme(s) in reach.")
+
+
+def test_main_prints_suggestions(monkeypatch, capsys):
+    from diem_chuan import query
+
+    monkeypatch.setattr("diem_chuan.load.load_scores", lambda: DF)
+    assert query.main(["27.5", "--university", "AAA", "--limit", "1"]) == 0
+    out = capsys.readouterr().out
+    assert out.count("[") == 1
+    assert out.rstrip().endswith("programme(s) in reach.")
