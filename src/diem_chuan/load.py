@@ -1,10 +1,13 @@
 """Read the dataset into pandas."""
 
+import os
 from pathlib import Path
 
 import pandas as pd
 
-DATA_DIR = Path(__file__).resolve().parents[2] / "data"
+# The data files live in the repository, next to src/. Set DIEM_CHUAN_DATA when the package
+# is installed somewhere else.
+DATA_DIR = Path(os.environ.get("DIEM_CHUAN_DATA", Path(__file__).resolve().parents[2] / "data"))
 
 # Codes like 7480201 must stay strings, and an empty note is "", not NaN.
 _READ = {"dtype": str, "keep_default_na": False, "encoding": "utf-8"}
