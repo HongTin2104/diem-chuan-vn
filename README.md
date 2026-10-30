@@ -4,6 +4,7 @@
 [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-blue)](data/DATASET.md#license)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-green)](LICENSE)
 [![Demo](https://img.shields.io/badge/demo-streamlit-ff4b4b)](https://diem-chuan-vn.streamlit.app/)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20dataset-diem--chuan--vn-yellow)](https://huggingface.co/datasets/HongTin2104/diem-chuan-vn)
 
 Open, multi-year dataset of Vietnamese university admission cut-off scores (điểm chuẩn), where
 every row links to the university's own announcement, plus a small tool that suggests programmes
@@ -111,7 +112,16 @@ df[(df.university == "BKA") & (df.major_code == "IT1") & (df.method == "thpt")]
 
 The CSV files under `data/` can also be used directly, without this package.
 
-To get everything in one file, with the university, method and source details joined into each row:
+The same data is on Hugging Face as one Parquet file, with the university, method and source
+details joined into each row:
+
+```python
+from datasets import load_dataset
+
+ds = load_dataset("HongTin2104/diem-chuan-vn", split="train")
+```
+
+To build that file yourself from the CSV files:
 
 ```bash
 pip install -e ".[export]"
@@ -169,8 +179,10 @@ lệch so với điểm chuẩn năm gần nhất và xu hướng tăng giảm q
 - Đồ án *phân tích dữ liệu*: bắt đầu từ `notebooks/01_explore.ipynb` (`pip install -e ".[notebook]"`),
   hoặc dùng thẳng các file CSV trong `data/scores/`, ví dụ so sánh xu hướng
   điểm chuẩn khối ngành CNTT và kinh tế, hoặc tác động của việc đổi phương thức xét tuyển.
-  Cần một file duy nhất thì chạy `python -m diem_chuan.export`: file `dist/hf/diem_chuan.parquet`
-  đã ghép sẵn tên trường, tên phương thức và link nguồn vào từng dòng.
+  Cần một file duy nhất thì tải từ
+  [Hugging Face](https://huggingface.co/datasets/HongTin2104/diem-chuan-vn)
+  (`load_dataset("HongTin2104/diem-chuan-vn")`), hoặc tự tạo bằng `python -m diem_chuan.export`:
+  file Parquet đã ghép sẵn tên trường, tên phương thức và link nguồn vào từng dòng.
 - Đồ án *thu thập dữ liệu*: xem `src/diem_chuan/crawl.py` (tôn trọng robots.txt, có delay, có cache)
   và `src/diem_chuan/sources/bka.py` (đọc bảng HTML).
 - Đồ án *web/app*: `app/app.py` là một app Streamlit khoảng 150 dòng.
