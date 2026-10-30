@@ -1,0 +1,36 @@
+name: Add or fix data
+description: A university or a year that is missing, or a value that looks wrong.
+labels: ["data"]
+body:
+  - type: input
+    id: university
+    attributes:
+      label: University
+      description: Name and ministry code if you know it, e.g. Đại học Ngoại thương (NTH)
+    validations:
+      required: true
+  - type: input
+    id: years
+    attributes:
+      label: Year(s)
+      placeholder: "2025"
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Link to the official announcement
+      description: The university's own website, not an aggregator.
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Format of the announcement (HTML table, image, PDF), or which value is wrong and what the source says.
+  - type: checkboxes
+    id: doing
+    attributes:
+      label: Contributing
+      options:
+        - label: I would like to add this data myself
