@@ -108,6 +108,30 @@ def test_source_checks(tmp_path):
 
 
 @pytest.mark.parametrize(
+    ("source_id", "years"),
+    [
+        ("QSC-2021-2025", "2021-2025"),
+        ("qsc-2021_2025", "2021-2025"),
+        ("qsc-2024", "2021-2025"),
+        ("other-2024", "2024"),
+    ],
+)
+def test_source_id_matches_university_and_years(tmp_path, source_id, years):
+    sources = SOURCES.replace("qsc-2021-2025,QSC,2021-2025", f"{source_id},QSC,{years}")
+    scores = HEADER + ROW.replace("qsc-2021-2025", source_id)
+    errors = validate(make_data(tmp_path, scores, sources=sources))
+    assert errors == [f"data/sources.csv:2: id must be 'qsc-{years}'"]
+
+
+@pytest.mark.parametrize("years", ["2024", "2021-2025"])
+def test_source_id_accepts_single_year_and_range(tmp_path, years):
+    source_id = f"qsc-{years}"
+    sources = SOURCES.replace("qsc-2021-2025,QSC,2021-2025", f"{source_id},QSC,{years}")
+    scores = HEADER + ROW.replace("qsc-2021-2025", source_id)
+    assert validate(make_data(tmp_path, scores, sources=sources)) == []
+
+
+@pytest.mark.parametrize(
     ("file_url", "ok"),
     [("https://x.vn/a.png https://x.vn/b.png", True), ("https://x.vn/a.png ftp://x/b", False)],
 )
@@ -148,6 +172,7 @@ def test_every_source_field_is_checked(tmp_path):
     sources = SOURCES + "qsc-2021-2025,QSC,2024,x.vn,ftp://x,photo,30/10/2026\n"
     errors = validate(make_data(tmp_path, sources=sources))
     assert [e.split(": ", 1)[1] for e in errors] == [
+        "id must be 'qsc-2024'",
         "page_url must be a link to the official page",
         "file_url must be empty or links separated by spaces",
         "format must be one of ['html', 'image', 'pdf', 'xlsx']",

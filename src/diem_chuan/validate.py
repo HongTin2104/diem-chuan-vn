@@ -115,6 +115,9 @@ def _check_sources(
             continue
         first = int(years.group(1))
         last = int(years.group(2) or first)
+        expected_id = f"{row['university'].lower()}-{row['years']}"
+        if row["id"] != expected_id:
+            report.add(path, i, f"id must be {expected_id!r}")
         if not row["page_url"].startswith(("https://", "http://")):
             report.add(path, i, "page_url must be a link to the official page")
         # Several images of one announcement are listed space-separated.
