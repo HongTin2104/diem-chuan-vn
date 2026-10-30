@@ -175,6 +175,63 @@ def test_duplicate_method(tmp_path):
     assert errors == ["data/methods.csv: method thpt is listed more than once"]
 
 
+RENAMED_SCORES = (
+    HEADER
+    + "2024,7480104_TT,HTTT,thpt,A00,25,30,qsc-2021-2025,\n"
+    + "2025,7480104TT,HTTT,thpt,A00,26,30,qsc-2021-2025,\n"
+    + "2025,7480101,KHMT,thpt,A00,27,30,qsc-2021-2025,\n"
+)
+ALIASES = "university,code,same_as\n"
+
+
+def test_valid_alias_joins_the_years(tmp_path):
+    data = make_data(
+        tmp_path, RENAMED_SCORES, programme_aliases=ALIASES + "QSC,7480104_TT,7480104TT\n"
+    )
+    assert validate(data) == []
+    df = load_scores(data)
+    assert list(df["programme"]) == ["7480104TT", "7480104TT", "7480101"]
+
+
+def test_without_aliases_file_programme_is_the_code(tmp_path):
+    df = load_scores(make_data(tmp_path, RENAMED_SCORES))
+    assert list(df["programme"]) == list(df["major_code"])
+
+
+@pytest.mark.parametrize(
+    ("row", "message"),
+    [
+        ("XYZ,A,B", "university 'XYZ' has no scores file"),
+        ("QSC,7480104_TT,NOPE", "NOPE is not a major_code in scores/QSC.csv"),
+        ("QSC,7480104TT,7480104TT", "code and same_as are the same"),
+        ("QSC,7480104TT,7480104_TT", "7480104TT must only appear in years before 7480104_TT"),
+        ("QSC,7480101,7480104TT", "7480101 must only appear in years before 7480104TT"),
+    ],
+)
+def test_bad_alias(tmp_path, row, message):
+    data = make_data(tmp_path, RENAMED_SCORES, programme_aliases=ALIASES + row + "\n")
+    assert validate(data) == [f"data/programme_aliases.csv:2: {message}"]
+
+
+def test_alias_chain_and_duplicate(tmp_path):
+    aliases = (
+        ALIASES + "QSC,7480104_TT,7480104TT\nQSC,7480104_TT,7480104TT\nQSC,7480101,7480104_TT\n"
+    )
+    errors = validate(make_data(tmp_path, RENAMED_SCORES, programme_aliases=aliases))
+    assert "data/programme_aliases.csv:3: this code is already listed" in errors
+    assert (
+        "data/programme_aliases.csv:4: same_as 7480104_TT is itself an old code; "
+        "point to the current one"
+    ) in errors
+
+
+def test_aliases_with_wrong_columns(tmp_path):
+    errors = validate(make_data(tmp_path, programme_aliases="code,same_as\nA,B\n"))
+    assert errors == [
+        "data/programme_aliases.csv: columns must be exactly: university,code,same_as"
+    ]
+
+
 def test_load_subject_groups(tmp_path):
     df = load_subject_groups(make_data(tmp_path))
     assert df.set_index("code").loc["A01", "subjects"] == "Toán; Vật lý; Tiếng Anh"

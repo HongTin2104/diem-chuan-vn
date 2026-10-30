@@ -158,16 +158,17 @@ def _check_scores(
     subject_groups: set[str],
     sources: dict[str, tuple[str, int, int]],
     report: Report,
-) -> None:
+) -> dict[str, set[int]]:
+    """Check one scores file; return the years each major_code appears in."""
     university = path.stem
     if university not in universities:
         report.add(path, None, f"file name {university!r} is not a code in universities.csv")
     df = _read(path, schema.SCORE_COLUMNS, report)
     if df is None:
-        return
+        return {}
     if df.empty:
         report.add(path, None, "file has no rows")
-        return
+        return {}
 
     this_year = dt.date.today().year
     for i, row in df.iterrows():
@@ -212,6 +213,38 @@ def _check_scores(
     for i in df.index[df.duplicated(key, keep="first")]:
         report.add(path, i, "same year, major_code, method and subject_groups as an earlier row")
 
+    years: dict[str, set[int]] = {}
+    for code, year in zip(df["major_code"], df["year"], strict=True):
+        if year.isdigit():
+            years.setdefault(code, set()).add(int(year))
+    return years
+
+
+def _check_aliases(data_dir: Path, codes: dict[str, dict[str, set[int]]], report: Report) -> None:
+    path = data_dir / "programme_aliases.csv"
+    if not path.exists():
+        return
+    df = _read(path, schema.ALIAS_COLUMNS, report)
+    if df is None:
+        return
+    renamed = set(zip(df["university"], df["code"], strict=True))
+    for i, row in df.iterrows():
+        university, old, new = row["university"], row["code"], row["same_as"]
+        if university not in codes:
+            report.add(path, i, f"university {university!r} has no scores file")
+            continue
+        missing = [c for c in (old, new) if c not in codes[university]]
+        for c in missing:
+            report.add(path, i, f"{c} is not a major_code in scores/{university}.csv")
+        if old == new:
+            report.add(path, i, "code and same_as are the same")
+        elif (university, new) in renamed:
+            report.add(path, i, f"same_as {new} is itself an old code; point to the current one")
+        elif not missing and max(codes[university][old]) >= min(codes[university][new]):
+            report.add(path, i, f"{old} must only appear in years before {new}")
+    for i in df.index[df.duplicated(["university", "code"], keep="first")]:
+        report.add(path, i, "this code is already listed")
+
 
 def validate(data_dir: Path = DATA_DIR) -> list[str]:
     report = Report(data_dir)
@@ -219,8 +252,11 @@ def validate(data_dir: Path = DATA_DIR) -> list[str]:
     methods = _check_methods(data_dir, report)
     subject_groups = _check_subject_groups(data_dir, report)
     sources = _check_sources(data_dir, universities, report)
-    for path in score_files(data_dir):
-        _check_scores(path, universities, methods, subject_groups, sources, report)
+    codes = {
+        path.stem: _check_scores(path, universities, methods, subject_groups, sources, report)
+        for path in score_files(data_dir)
+    }
+    _check_aliases(data_dir, codes, report)
     return report.errors
 
 

@@ -39,6 +39,8 @@ By taking part you agree to the [code of conduct](CODE_OF_CONDUCT.md).
      `data/subject_groups.csv`; if it is not, add it with its subjects (`Toán; Vật lý; Tiếng Đức`)
      and a link to an official page that defines it, such as the university's admission scheme.
    - Put anything the columns cannot hold in `note`.
+   - If a programme now has a different code from earlier years, keep the new code as published
+     and add a line to `data/programme_aliases.csv`: `university,old code,new code`.
 5. **Check** before opening the pull request:
 
    ```bash
@@ -117,6 +119,8 @@ request, không cần biết code.
 4. Nhập điểm vào `data/scores/<MÃ_TRƯỜNG>.csv`. Giữ nguyên mã và tên ngành như trong thông báo. Số
    thập phân dùng dấu chấm. Ghi rõ thang điểm. Tổ hợp nào chưa có trong `data/subject_groups.csv`
    thì thêm vào, kèm các môn và link tới trang chính thức định nghĩa tổ hợp đó.
+   Ngành nào đổi mã so với các năm trước thì giữ mã mới như thông báo và thêm một dòng vào
+   `data/programme_aliases.csv` (`trường,mã cũ,mã mới`).
 5. Chạy `python -m diem_chuan.validate` và `pytest -q`, sửa đến khi không còn lỗi. Khi mở pull
    request, CI sẽ tự chạy lại các bước này, cùng với lint, CodeQL và kiểm tra tiêu đề (theo dạng
    `data: add FTU 2025`).
