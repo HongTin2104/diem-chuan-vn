@@ -25,6 +25,10 @@ def load_methods(data_dir: Path = DATA_DIR) -> pd.DataFrame:
     return pd.read_csv(data_dir / "methods.csv", **_READ)
 
 
+def load_subject_groups(data_dir: Path = DATA_DIR) -> pd.DataFrame:
+    return pd.read_csv(data_dir / "subject_groups.csv", **_READ)
+
+
 def score_files(data_dir: Path = DATA_DIR) -> list[Path]:
     return sorted((data_dir / "scores").glob("*.csv"))
 

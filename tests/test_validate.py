@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from diem_chuan.load import load_scores
+from diem_chuan.load import load_scores, load_subject_groups
 from diem_chuan.validate import main, validate
 
 UNIVERSITIES = (
@@ -14,6 +14,11 @@ SOURCES = (
     "id,university,years,page_url,file_url,format,accessed\n"
     "qsc-2021-2025,QSC,2021-2025,https://tuyensinh.uit.edu.vn/x,,image,2026-10-30\n"
 )
+SUBJECT_GROUPS = (
+    "code,subjects,source_url\n"
+    "A00,Toán; Vật lý; Hóa học,https://x.vn/to-hop\n"
+    "A01,Toán; Vật lý; Tiếng Anh,https://x.vn/to-hop\n"
+)
 HEADER = "year,major_code,major_name,method,subject_groups,score,scale,source,note\n"
 ROW = "2024,7480101,Khoa học Máy tính,thpt,A00 A01,27.3,30,qsc-2021-2025,\n"
 
@@ -24,6 +29,7 @@ def make_data(tmp_path: Path, scores: str = HEADER + ROW, **files: str) -> Path:
     contents = {
         "universities.csv": UNIVERSITIES,
         "methods.csv": METHODS,
+        "subject_groups.csv": SUBJECT_GROUPS,
         "sources.csv": SOURCES,
         "scores/QSC.csv": scores,
     }
@@ -54,6 +60,7 @@ def test_load_scores_adds_university_and_types(tmp_path):
         ("2024,7480101,KHMT,hocba,A00,27,30,qsc-2021-2025,", "not in methods.csv"),
         ("2024,7480101,KHMT,thpt,A0,27,30,qsc-2021-2025,", "should look like A00"),
         ("2024,7480101,KHMT,thpt,A00 A00,27,30,qsc-2021-2025,", "repeats a group"),
+        ("2024,7480101,KHMT,thpt,A00 X01,27,30,qsc-2021-2025,", "X01 is not in subject_groups.csv"),
         ("2024,7480101,KHMT,thpt,A00,27,30,qsc-2026,", "not in sources.csv"),
         ("2026,7480101,KHMT,thpt,A00,27,30,qsc-2021-2025,", "only covers 2021-2025"),
         ("2010,7480101,KHMT,thpt,A00,27,30,qsc-2021-2025,", "year must be between"),
@@ -166,6 +173,33 @@ def test_duplicate_method(tmp_path):
     methods = METHODS + "thpt,Thi THPT,Exam\n"
     errors = validate(make_data(tmp_path, methods=methods))
     assert errors == ["data/methods.csv: method thpt is listed more than once"]
+
+
+def test_load_subject_groups(tmp_path):
+    df = load_subject_groups(make_data(tmp_path))
+    assert df.set_index("code").loc["A01", "subjects"] == "Toán; Vật lý; Tiếng Anh"
+
+
+def test_subject_groups_with_wrong_columns(tmp_path):
+    errors = validate(make_data(tmp_path, subject_groups="code,subjects\nA00,Toán\n"))
+    assert errors[0].startswith("data/subject_groups.csv: columns must be exactly")
+    # Without a readable table, every group used in the scores is unknown.
+    assert errors[1:] == [
+        "data/scores/QSC.csv:2: subject group A00 is not in subject_groups.csv",
+        "data/scores/QSC.csv:2: subject group A01 is not in subject_groups.csv",
+    ]
+
+
+def test_every_subject_group_field_is_checked(tmp_path):
+    groups = SUBJECT_GROUPS + "A0,Toán,x.vn/to-hop\nA00,Toán;; Lý,https://x.vn\n"
+    errors = validate(make_data(tmp_path, subject_groups=groups))
+    assert [e.split(": ", 1)[1] for e in errors] == [
+        "code 'A0' should look like A00 or D01",
+        "subjects must list the subjects separated by '; '",
+        "source_url must be a link to where the group is defined",
+        "subjects must list the subjects separated by '; '",
+        "code A00 is listed more than once",
+    ]
 
 
 def test_every_source_field_is_checked(tmp_path):

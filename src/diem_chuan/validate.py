@@ -97,6 +97,24 @@ def _check_methods(data_dir: Path, report: Report) -> set[str]:
     return set(df["method"])
 
 
+def _check_subject_groups(data_dir: Path, report: Report) -> set[str]:
+    path = data_dir / "subject_groups.csv"
+    df = _read(path, schema.SUBJECT_GROUP_COLUMNS, report)
+    if df is None:
+        return set()
+    for i, row in df.iterrows():
+        if not schema.SUBJECT_GROUP_RE.match(row["code"]):
+            report.add(path, i, f"code {row['code']!r} should look like A00 or D01")
+        subjects = [s.strip() for s in row["subjects"].split(";")]
+        if len(subjects) < 2 or not all(subjects) or "; ".join(subjects) != row["subjects"]:
+            report.add(path, i, "subjects must list the subjects separated by '; '")
+        if not row["source_url"].startswith(("https://", "http://")):
+            report.add(path, i, "source_url must be a link to where the group is defined")
+    for code in df.loc[df["code"].duplicated(), "code"]:
+        report.add(path, None, f"code {code} is listed more than once")
+    return set(df["code"])
+
+
 def _check_sources(
     data_dir: Path, universities: set[str], report: Report
 ) -> dict[str, tuple[str, int, int]]:
@@ -137,6 +155,7 @@ def _check_scores(
     path: Path,
     universities: set[str],
     methods: set[str],
+    subject_groups: set[str],
     sources: dict[str, tuple[str, int, int]],
     report: Report,
 ) -> None:
@@ -166,6 +185,8 @@ def _check_scores(
         for group in groups:
             if not schema.SUBJECT_GROUP_RE.match(group):
                 report.add(path, i, f"subject group {group!r} should look like A00 or D01")
+            elif group not in subject_groups:
+                report.add(path, i, f"subject group {group} is not in subject_groups.csv")
         if len(groups) != len(set(groups)):
             report.add(path, i, "subject_groups repeats a group")
 
@@ -196,9 +217,10 @@ def validate(data_dir: Path = DATA_DIR) -> list[str]:
     report = Report(data_dir)
     universities = _check_universities(data_dir, report)
     methods = _check_methods(data_dir, report)
+    subject_groups = _check_subject_groups(data_dir, report)
     sources = _check_sources(data_dir, universities, report)
     for path in score_files(data_dir):
-        _check_scores(path, universities, methods, sources, report)
+        _check_scores(path, universities, methods, subject_groups, sources, report)
     return report.errors
 
 
