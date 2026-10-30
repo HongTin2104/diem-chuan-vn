@@ -22,8 +22,8 @@ SOURCE_FORMATS = {"html", "pdf", "image", "xlsx"}
 
 # Ministry university codes: three letters, e.g. BKA, QSC.
 UNIVERSITY_CODE_RE = re.compile(r"^[A-Z]{3}$")
-# Published as-is: 7480201, 7480104_TT, 75202A1TA ...
-MAJOR_CODE_RE = re.compile(r"^[0-9A-Za-z_]+$")
+# Published as-is: 7480201, 7480104_TT, 75202A1TA, IT-E10 ...
+MAJOR_CODE_RE = re.compile(r"^[0-9A-Za-z][0-9A-Za-z_-]*$")
 # A00, D01, DD2, K01 ...
 SUBJECT_GROUP_RE = re.compile(r"^[A-Z][A-Z0-9]\d$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
