@@ -155,6 +155,9 @@ The most useful contribution is data: one university and one year is a complete 
 [`good first issue`](https://github.com/HongTin2104/diem-chuan-vn/labels/good%20first%20issue)
 list universities and years that are still missing.
 
+What comes next (cut-offs as ranks, a forecast with a measured error, a nguyện vọng planner) is
+in [ROADMAP.md](ROADMAP.md); each release is a milestone with issues you can pick up.
+
 ## Limitations
 
 - Three universities so far. HCMUT's site renders its content with JavaScript, so it needs a
@@ -189,7 +192,9 @@ lệch so với điểm chuẩn năm gần nhất và xu hướng tăng giảm q
 - Lưu ý khi so sánh: chỉ so trong cùng phương thức và cùng thang điểm (cột `method` và `scale`).
 
 **Đóng góp dữ liệu** là cách giúp nhiều nhất, kể cả khi bạn chưa biết code: thêm điểm chuẩn của trường
-bạn cho một năm là đủ một pull request. Xem [CONTRIBUTING.md](CONTRIBUTING.md).
+bạn cho một năm là đủ một pull request. Xem [CONTRIBUTING.md](CONTRIBUTING.md). Hướng phát triển
+(đổi điểm chuẩn ra thứ hạng, dự đoán điểm chuẩn có đo sai số, gợi ý thứ tự nguyện vọng) nằm trong
+[ROADMAP.md](ROADMAP.md).
 
 ## Citation
 
