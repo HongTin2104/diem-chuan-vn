@@ -172,6 +172,7 @@ def test_every_source_field_is_checked(tmp_path):
     sources = SOURCES + "qsc-2021-2025,QSC,2024,x.vn,ftp://x,photo,30/10/2026\n"
     errors = validate(make_data(tmp_path, sources=sources))
     assert [e.split(": ", 1)[1] for e in errors] == [
+        "id must be 'qsc-2024'",
         "page_url must be a link to the official page",
         "file_url must be empty or links separated by spaces",
         "format must be one of ['html', 'image', 'pdf', 'xlsx']",
