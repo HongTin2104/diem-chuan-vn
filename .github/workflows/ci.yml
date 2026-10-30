@@ -50,3 +50,11 @@ jobs:
           cache: pip
       - run: pip install -e ".[dev]"
       - run: pytest -q --cov --cov-report=term-missing:skip-covered
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: docker build -t diem-chuan-vn .
+      - name: Check the data inside the image
+        run: docker run --rm diem-chuan-vn python -m diem_chuan.validate
