@@ -43,3 +43,75 @@ def test_fetch_respects_robots(tmp_path, monkeypatch):
     monkeypatch.setattr(crawl, "_allowed", lambda url: False)
     with pytest.raises(crawl.Disallowed):
         crawl.fetch("https://example.edu.vn/private", cache_dir=tmp_path)
+
+
+class FakeResponse:
+    def __init__(self, body: bytes):
+        self.body = body
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+    def read(self) -> bytes:
+        return self.body
+
+
+def test_fetch_downloads_waits_and_caches(tmp_path, monkeypatch):
+    requests, sleeps = [], []
+    monkeypatch.setattr(crawl, "_allowed", lambda url: True)
+    monkeypatch.setattr(crawl.time, "sleep", sleeps.append)
+    monkeypatch.setattr(crawl, "_last_request", crawl.time.monotonic())
+
+    def urlopen(request, timeout):
+        requests.append(request)
+        return FakeResponse(b"<table></table>")
+
+    monkeypatch.setattr(crawl.urllib.request, "urlopen", urlopen)
+    url = "https://example.edu.vn/diem-chuan-2025"
+    assert crawl.fetch(url, cache_dir=tmp_path) == b"<table></table>"
+    assert crawl.fetch(url, cache_dir=tmp_path) == b"<table></table>"
+
+    assert len(requests) == 1  # the second call is served from the cache
+    assert requests[0].get_header("User-agent") == crawl.USER_AGENT
+    assert len(sleeps) == 1 and 0 < sleeps[0] <= crawl.DELAY_SECONDS
+
+
+class FakeRobots:
+    def __init__(self, url, lines=None, fail=False):
+        self.url, self.lines, self.fail = url, lines, fail
+
+    def read(self):
+        if self.fail:
+            raise OSError("unreachable")
+        self.parse(self.lines)
+
+    def parse(self, lines):
+        self.disallowed = [line.split(": ")[1] for line in lines if line.startswith("Disallow")]
+
+    def can_fetch(self, agent, url):
+        return not any(crawl.urllib.parse.urlsplit(url).path.startswith(p) for p in self.disallowed)
+
+
+@pytest.mark.parametrize(
+    ("robots", "url", "allowed"),
+    [
+        ({"lines": ["User-agent: *", "Disallow: /admin"]}, "https://a.edu.vn/admin/x", False),
+        ({"lines": ["User-agent: *", "Disallow: /admin"]}, "https://a.edu.vn/tin-tuc", True),
+        ({"fail": True}, "https://a.edu.vn/admin/x", True),
+    ],
+)
+def test_allowed_reads_robots_once(monkeypatch, robots, url, allowed):
+    made = []
+
+    def parser(robots_url):
+        made.append(robots_url)
+        return FakeRobots(robots_url, **robots)
+
+    monkeypatch.setattr(crawl, "_robots", {})
+    monkeypatch.setattr(crawl.urllib.robotparser, "RobotFileParser", parser)
+    assert crawl._allowed(url) is allowed
+    assert crawl._allowed(url) is allowed
+    assert made == ["https://a.edu.vn/robots.txt"]

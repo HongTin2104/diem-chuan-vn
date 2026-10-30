@@ -17,3 +17,10 @@ def test_scores_stay_within_their_scale():
     df = load_scores()
     assert (df["score"] <= df["scale"]).all()
     assert set(df.loc[df["method"] == "thpt", "scale"]) == {30.0}
+
+
+def test_empty_data_folder_loads_as_empty_frame(tmp_path):
+    from diem_chuan.load import load_scores
+
+    (tmp_path / "scores").mkdir()
+    assert load_scores(tmp_path).empty

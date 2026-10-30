@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this dataset or code, please cite it as below."
+title: "diem-chuan-vn: Vietnamese university admission cut-off scores"
+type: dataset
+authors:
+  - alias: HongTin2104
+repository-code: "https://github.com/HongTin2104/diem-chuan-vn"
+url: "https://diem-chuan-vn.streamlit.app/"
+abstract: >-
+  Open, multi-year dataset of Vietnamese university admission cut-off scores,
+  where every row links to the university's own announcement, with a tool that
+  suggests programmes for a given score.
+keywords:
+  - vietnam
+  - university admission
+  - cut-off scores
+  - open data
+license: CC-BY-4.0
+version: 0.1.0
+date-released: "2026-10-30"

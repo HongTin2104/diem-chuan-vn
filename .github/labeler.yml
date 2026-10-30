@@ -1,0 +1,19 @@
+data:
+  - changed-files:
+      - any-glob-to-any-file: data/**
+
+extractor:
+  - changed-files:
+      - any-glob-to-any-file: src/diem_chuan/sources/**
+
+app:
+  - changed-files:
+      - any-glob-to-any-file: app/**
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.md", docs/**, notebooks/**]
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file: [.github/**, Dockerfile, .pre-commit-config.yaml]

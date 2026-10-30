@@ -3,10 +3,13 @@
 [![CI](https://github.com/HongTin2104/diem-chuan-vn/actions/workflows/ci.yml/badge.svg)](https://github.com/HongTin2104/diem-chuan-vn/actions/workflows/ci.yml)
 [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-blue)](data/DATASET.md#license)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-green)](LICENSE)
+[![Demo](https://img.shields.io/badge/demo-streamlit-ff4b4b)](https://diem-chuan-vn.streamlit.app/)
 
 Open, multi-year dataset of Vietnamese university admission cut-off scores (điểm chuẩn), where
 every row links to the university's own announcement, plus a small tool that suggests programmes
 for a given score and says why.
+
+**Try it online:** https://diem-chuan-vn.streamlit.app/
 
 ![Suggestions for a score of 26.5](docs/suggest.png)
 
@@ -123,6 +126,7 @@ src/diem_chuan/
   sources/              extractors for machine-readable announcements
   query.py              history and suggestions
 app/app.py              Streamlit demo
+notebooks/01_explore.ipynb  first look at the data (EDA)
 tests/
 ```
 
@@ -146,13 +150,16 @@ list universities and years that are still missing.
 
 ## Tiếng Việt
 
+Dùng thử: https://diem-chuan-vn.streamlit.app/
+
 Bộ dữ liệu điểm chuẩn đại học nhiều năm, mở theo giấy phép CC BY 4.0, mỗi dòng có link tới thông báo
 chính thức của trường. Kèm theo là công cụ gợi ý ngành theo điểm, có giải thích vì sao gợi ý: chênh
 lệch so với điểm chuẩn năm gần nhất và xu hướng tăng giảm qua các năm.
 
 **Dùng làm tài liệu tham khảo cho đồ án:**
 
-- Đồ án *phân tích dữ liệu*: dùng thẳng các file CSV trong `data/scores/`, ví dụ so sánh xu hướng
+- Đồ án *phân tích dữ liệu*: bắt đầu từ `notebooks/01_explore.ipynb` (`pip install -e ".[notebook]"`),
+  hoặc dùng thẳng các file CSV trong `data/scores/`, ví dụ so sánh xu hướng
   điểm chuẩn khối ngành CNTT và kinh tế, hoặc tác động của việc đổi phương thức xét tuyển.
 - Đồ án *thu thập dữ liệu*: xem `src/diem_chuan/crawl.py` (tôn trọng robots.txt, có delay, có cache)
   và `src/diem_chuan/sources/bka.py` (đọc bảng HTML).

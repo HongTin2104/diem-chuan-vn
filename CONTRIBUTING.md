@@ -3,6 +3,8 @@
 Thanks for helping. Data is the most useful contribution: one university and one year is a
 complete pull request, and you do not need to write code for it.
 
+By taking part you agree to the [code of conduct](CODE_OF_CONDUCT.md).
+
 *Tiếng Việt ở cuối trang.*
 
 ## Add a university or a year
@@ -64,10 +66,28 @@ python -m diem_chuan.sources nth-2025
 
 ## Code changes
 
-- Python 3.11+, `ruff check .` and `ruff format --check .` must pass.
+- Python 3.11+. Run `pre-commit install` once; ruff and a few file checks then run on every
+  commit. `pre-commit run --all-files` runs them by hand.
+- New code comes with tests. CI fails below 95% coverage (`pytest --cov`).
 - Keep pull requests small and focused; open an issue first for anything larger.
-- Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/):
+- Commit messages and pull request titles follow
+  [Conventional Commits](https://www.conventionalcommits.org/):
   `data: add FTU 2025`, `feat(query): ...`, `fix(validate): ...`.
+
+## What runs on a pull request
+
+| Check | What it does |
+|---|---|
+| CI / data | `python -m diem_chuan.validate`, plus a table of the data files changed |
+| CI / lint | the pre-commit hooks: ruff, ruff format, YAML/TOML, large files, private keys |
+| CI / test | pytest on Python 3.11, 3.12 and 3.13 with the coverage threshold |
+| CI / docker | builds the image and validates the data inside it |
+| CodeQL | static security analysis of the Python code and the workflows |
+| Pull request / title | the title follows Conventional Commits |
+| Pull request / label | adds `data`, `extractor`, `app`, `documentation` or `ci` from the files changed |
+
+Pull requests from a first-time contributor wait for a maintainer to approve the workflow run.
+Dependabot opens monthly pull requests for dependency updates.
 
 ## Tiếng Việt
 
@@ -79,7 +99,9 @@ request, không cần biết code.
 3. Nếu là trường mới, thêm trường vào `data/universities.csv` (mã trường theo Bộ GD&ĐT).
 4. Nhập điểm vào `data/scores/<MÃ_TRƯỜNG>.csv`. Giữ nguyên mã và tên ngành như trong thông báo. Số
    thập phân dùng dấu chấm. Ghi rõ thang điểm.
-5. Chạy `python -m diem_chuan.validate` và `pytest -q`, sửa đến khi không còn lỗi.
+5. Chạy `python -m diem_chuan.validate` và `pytest -q`, sửa đến khi không còn lỗi. Khi mở pull
+   request, CI sẽ tự chạy lại các bước này, cùng với lint, CodeQL và kiểm tra tiêu đề (theo dạng
+   `data: add FTU 2025`).
 6. Trong pull request, ghi bạn đã kiểm tra thế nào, ví dụ "nhập từ ảnh, đã soát lại từng dòng".
    Không tự điền số không có trong nguồn.
 

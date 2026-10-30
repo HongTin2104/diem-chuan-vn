@@ -5,3 +5,4 @@
 
 - [ ] `python -m diem_chuan.validate` passes
 - [ ] `pytest -q` passes
+- [ ] The title follows Conventional Commits, e.g. `data: add FTU 2025` or `fix(validate): ...`

@@ -145,3 +145,75 @@ def test_main_exit_codes(tmp_path, capsys):
     assert main([str(make_data(tmp_path / "ok"))]) == 0
     assert "OK: 1 score file" in capsys.readouterr().out
     assert main([str(make_data(tmp_path / "bad", HEADER + ROW.replace("27.3", "99")))]) == 1
+
+
+def test_university_checks(tmp_path):
+    universities = UNIVERSITIES + (
+        "qsc,,x,Hà Nội,state,http://x.vn\nQSC,Trường khác,x,Hà Nội,private,https://x.vn\n"
+    )
+    errors = validate(make_data(tmp_path, universities=universities))
+    for message in [
+        "data/universities.csv:3: code 'qsc' is not three capital letters",
+        "data/universities.csv:3: name is empty",
+        "data/universities.csv:3: ownership must be one of",
+        "data/universities.csv:3: website must start with https://",
+        "data/universities.csv: code QSC is listed more than once",
+    ]:
+        assert any(e.startswith(message) for e in errors), errors
+
+
+def test_duplicate_method(tmp_path):
+    methods = METHODS + "thpt,Thi THPT,Exam\n"
+    errors = validate(make_data(tmp_path, methods=methods))
+    assert errors == ["data/methods.csv: method thpt is listed more than once"]
+
+
+def test_every_source_field_is_checked(tmp_path):
+    sources = SOURCES + "qsc-2021-2025,QSC,2024,x.vn,ftp://x,photo,30/10/2026\n"
+    errors = validate(make_data(tmp_path, sources=sources))
+    assert [e.split(": ", 1)[1] for e in errors] == [
+        "page_url must be a link to the official page",
+        "file_url must be empty or links separated by spaces",
+        "format must be one of ['html', 'image', 'pdf', 'xlsx']",
+        "accessed must be a date like 2026-10-30",
+        "id qsc-2021-2025 is used more than once",
+    ]
+
+
+@pytest.mark.parametrize(
+    ("content", "message"),
+    [
+        ("năm".encode("cp1258"), "file is not valid UTF-8"),
+        (b"", "columns must be exactly"),
+        (b"year,score\n2024,27\n", "columns must be exactly"),
+        (HEADER.encode(), "file has no rows"),
+    ],
+)
+def test_unreadable_score_files(tmp_path, content, message):
+    data = make_data(tmp_path)
+    (data / "scores" / "QSC.csv").write_bytes(content)
+    errors = validate(data)
+    assert len(errors) == 1 and errors[0].startswith(f"data/scores/QSC.csv: {message}"), errors
+
+
+@pytest.mark.parametrize("scale", ["0", "x"])
+def test_bad_scale(tmp_path, scale):
+    row = ROW.replace(",30,", f",{scale},")
+    errors = validate(make_data(tmp_path, HEADER + row))
+    assert errors == ["data/scores/QSC.csv:2: scale must be a positive number, e.g. 30"]
+
+
+def test_year_must_be_a_number(tmp_path):
+    errors = validate(make_data(tmp_path, HEADER + ROW.replace("2024", "năm 2024")))
+    assert len(errors) == 1 and "year must be between" in errors[0]
+
+
+def test_broken_reference_files_skip_their_checks(tmp_path):
+    data = make_data(tmp_path, universities="code\nQSC\n", methods="", sources="id\n")
+    errors = validate(data)
+    assert {e.split(":")[0] for e in errors} == {
+        "data/universities.csv",
+        "data/methods.csv",
+        "data/sources.csv",
+        "data/scores/QSC.csv",
+    }

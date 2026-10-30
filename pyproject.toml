@@ -10,7 +10,8 @@ dependencies = ["pandas>=2.2"]
 
 [project.optional-dependencies]
 app = ["streamlit>=1.48", "altair>=5"]
-dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.6", "streamlit>=1.48", "altair>=5"]
+notebook = ["jupyter", "matplotlib>=3.10"]
+dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.6", "pre-commit>=4", "streamlit>=1.48", "altair>=5"]
 
 [project.scripts]
 diem-chuan-validate = "diem_chuan.validate:main"
@@ -36,5 +37,10 @@ testpaths = ["tests"]
 pythonpath = ["src"]
 
 [tool.coverage.run]
-source = ["diem_chuan"]
+source = ["diem_chuan", "app"]
 branch = true
+
+[tool.coverage.report]
+fail_under = 95
+show_missing = true
+exclude_also = ['if __name__ == "__main__":']
