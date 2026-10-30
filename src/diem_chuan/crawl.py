@@ -27,6 +27,22 @@ class Disallowed(Exception):
     """robots.txt does not allow this URL."""
 
 
+def encode_url(url: str) -> str:
+    """Percent-encode a URL that contains non-ASCII characters, as a browser would.
+
+    University sites link to paths like /ftu-thông-tin-tuyển-sinh-chung/, which urllib refuses
+    to send. Characters that are already valid in a URL, including existing %XX escapes, are
+    kept, so an ASCII URL comes back unchanged.
+    """
+    parts = urllib.parse.urlsplit(url)
+    host = (
+        parts.netloc.encode("idna").decode("ascii") if not parts.netloc.isascii() else parts.netloc
+    )
+    path = urllib.parse.quote(parts.path, safe="/%:@!$&'()*+,;=-._~")
+    query = urllib.parse.quote(parts.query, safe="=&%:@!$'()*+,;/?-._~")
+    return urllib.parse.urlunsplit((parts.scheme, host, path, query, ""))
+
+
 def _allowed(url: str) -> bool:
     parts = urllib.parse.urlsplit(url)
     root = f"{parts.scheme}://{parts.netloc}"
@@ -43,6 +59,7 @@ def _allowed(url: str) -> bool:
 
 def fetch(url: str, cache_dir: Path = CACHE_DIR) -> bytes:
     """Return the body of `url`, from the cache when possible."""
+    url = encode_url(url)
     cache_dir.mkdir(parents=True, exist_ok=True)
     cached = cache_dir / hashlib.sha256(url.encode()).hexdigest()[:16]
     if cached.exists():

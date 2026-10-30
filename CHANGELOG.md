@@ -10,6 +10,10 @@
   HUST and UIT). `load_scores()` and the Parquet export add a `programme` column with the current
   code; programme history, suggestions and trends in the app now span the code change (#4).
 
+### Fixed
+- `diem_chuan.crawl.fetch` percent-encodes URLs with Vietnamese characters, which urllib
+  refused to send (FTU links to pages such as `/ftu-thông-tin-tuyển-sinh-chung/`).
+
 ## 0.2.0 (2026-10-30)
 
 ### Added

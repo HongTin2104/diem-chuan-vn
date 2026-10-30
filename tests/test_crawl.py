@@ -79,6 +79,40 @@ def test_fetch_downloads_waits_and_caches(tmp_path, monkeypatch):
     assert len(sleeps) == 1 and 0 < sleeps[0] <= crawl.DELAY_SECONDS
 
 
+def test_fetch_encodes_vietnamese_urls(tmp_path, monkeypatch):
+    # FTU links to pages like /tuyensinh/ftu-thông-tin-tuyển-sinh-chung/...
+    requests, checked = [], []
+    monkeypatch.setattr(crawl, "_allowed", lambda url: checked.append(url) or True)
+    monkeypatch.setattr(crawl.time, "sleep", lambda s: None)
+    monkeypatch.setattr(
+        crawl.urllib.request,
+        "urlopen",
+        lambda r, timeout: requests.append(r) or FakeResponse(b"ok"),
+    )
+    url = "https://ftu.edu.vn/tuyensinh/thông-tin?q=điểm chuẩn&page=2"
+    assert crawl.fetch(url, cache_dir=tmp_path) == b"ok"
+    encoded = (
+        "https://ftu.edu.vn/tuyensinh/th%C3%B4ng-tin?q=%C4%91i%E1%BB%83m%20chu%E1%BA%A9n&page=2"
+    )
+    assert requests[0].full_url == encoded
+    assert checked == [encoded]
+    # The same page written either way is one cache entry.
+    monkeypatch.setattr(crawl.urllib.request, "urlopen", None)
+    assert crawl.fetch(encoded, cache_dir=tmp_path) == b"ok"
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
+        "https://example.edu.vn/diem-chuan-2025",
+        "https://example.edu.vn/a%20b/c?x=1&y=%C4%91",
+        "https://example.edu.vn/sinh-vi%C3%AAn/66-hoc-bong",
+    ],
+)
+def test_encoding_leaves_ascii_urls_alone(url):
+    assert crawl.encode_url(url) == url
+
+
 class FakeRobots:
     def __init__(self, url, lines=None, fail=False):
         self.url, self.lines, self.fail = url, lines, fail
@@ -115,3 +149,7 @@ def test_allowed_reads_robots_once(monkeypatch, robots, url, allowed):
     assert crawl._allowed(url) is allowed
     assert crawl._allowed(url) is allowed
     assert made == ["https://a.edu.vn/robots.txt"]
+
+
+def test_encoding_converts_an_international_domain():
+    assert crawl.encode_url("https://tênmiền.vn/a") == "https://xn--tnmin-hsa0954c.vn/a"
