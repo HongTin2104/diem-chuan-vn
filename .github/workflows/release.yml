@@ -1,0 +1,37 @@
+name: Release
+
+# Builds the Parquet export and the Hugging Face card for each published release, attaches the
+# Parquet file to the release, and keeps both as a workflow artifact. Uploading to Hugging Face is
+# done by the maintainer with their own token (see CONTRIBUTING.md), so no HF secret lives here.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # gh release upload
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e ".[export]"
+      - run: python -m diem_chuan.validate
+      - run: python -m diem_chuan.export --out dist/hf
+      - uses: actions/upload-artifact@v7
+        with:
+          name: hf-dataset
+          path: dist/hf/
+      - name: Attach the Parquet file to the release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$TAG" dist/hf/diem_chuan.parquet --clobber

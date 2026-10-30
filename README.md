@@ -111,6 +111,13 @@ df[(df.university == "BKA") & (df.major_code == "IT1") & (df.method == "thpt")]
 
 The CSV files under `data/` can also be used directly, without this package.
 
+To get everything in one file, with the university, method and source details joined into each row:
+
+```bash
+pip install -e ".[export]"
+python -m diem_chuan.export    # writes dist/hf/diem_chuan.parquet and a Hugging Face dataset card
+```
+
 ![History of one programme](docs/lookup.png)
 
 ## Project layout
@@ -125,6 +132,7 @@ src/diem_chuan/
   crawl.py              polite fetching, HTML table helpers
   sources/              extractors for machine-readable announcements
   query.py              history and suggestions
+  export.py             one Parquet file + Hugging Face dataset card
 app/app.py              Streamlit demo
 notebooks/01_explore.ipynb  first look at the data (EDA)
 tests/
@@ -161,6 +169,8 @@ lệch so với điểm chuẩn năm gần nhất và xu hướng tăng giảm q
 - Đồ án *phân tích dữ liệu*: bắt đầu từ `notebooks/01_explore.ipynb` (`pip install -e ".[notebook]"`),
   hoặc dùng thẳng các file CSV trong `data/scores/`, ví dụ so sánh xu hướng
   điểm chuẩn khối ngành CNTT và kinh tế, hoặc tác động của việc đổi phương thức xét tuyển.
+  Cần một file duy nhất thì chạy `python -m diem_chuan.export`: file `dist/hf/diem_chuan.parquet`
+  đã ghép sẵn tên trường, tên phương thức và link nguồn vào từng dòng.
 - Đồ án *thu thập dữ liệu*: xem `src/diem_chuan/crawl.py` (tôn trọng robots.txt, có delay, có cache)
   và `src/diem_chuan/sources/bka.py` (đọc bảng HTML).
 - Đồ án *web/app*: `app/app.py` là một app Streamlit khoảng 150 dòng.

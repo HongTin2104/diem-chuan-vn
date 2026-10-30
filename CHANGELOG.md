@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Added
+- `python -m diem_chuan.export` writes the whole dataset to one Parquet file, with university,
+  method and source details joined in, plus a Hugging Face dataset card (#1).
+
 ## 0.1.1 (2026-10-30)
 
 No data changes.

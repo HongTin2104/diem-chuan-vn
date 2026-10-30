@@ -89,6 +89,21 @@ python -m diem_chuan.sources nth-2025
 Pull requests from a first-time contributor wait for a maintainer to approve the workflow run.
 Dependabot opens monthly pull requests for dependency updates.
 
+## Releasing (maintainers)
+
+1. Open a pull request titled `release: vX.Y.Z` that sets the version in `pyproject.toml` and
+   `CITATION.cff` and moves the `Unreleased` changelog entries under the new version. Merge it once
+   CI is green.
+2. `gh release create vX.Y.Z --target main --notes-file <notes>`. The Release workflow attaches
+   `diem_chuan.parquet` to the release and keeps `dist/hf/` as the `hf-dataset` artifact.
+3. Upload the same files to Hugging Face (`pip install huggingface_hub`, then `hf auth login` once):
+
+   ```bash
+   git checkout vX.Y.Z
+   python -m diem_chuan.export
+   hf upload HongTin2104/diem-chuan-vn dist/hf . --repo-type dataset --commit-message "vX.Y.Z"
+   ```
+
 ## Tiếng Việt
 
 Cách đóng góp có ích nhất là thêm dữ liệu: điểm chuẩn của **một trường trong một năm** là đủ một pull
