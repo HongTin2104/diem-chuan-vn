@@ -251,3 +251,263 @@ year,major_code,major_name,method,subject_groups,score,scale,source,note
 2024,TROY-BA,Quản trị kinh doanh - hợp tác với ĐH Troy (Hoa Kỳ),tsa,,50.29,100,bka-2024,
 2024,TROY-IT,Khoa học máy tính - hợp tác với ĐH Troy (Hoa Kỳ),tsa,,50.29,100,bka-2024,
 2024,TX1,Công nghệ Dệt May,tsa,,50.68,100,bka-2024,
+2025,IT-E10,Khoa học dữ liệu và Trí tuệ nhân tạo (CT tiên tiến),thpt,A00,29.39,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,IT1,CNTT: Khoa học Máy tính,thpt,A00,29.19,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,IT2,CNTT: Kỹ thuật Máy tính,thpt,A00,28.83,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,IT-E15,An toàn không gian số - Cyber Security (CT Tiên tiến),thpt,A00,28.69,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,IT-E7,Công nghệ thông tin (Global ICT),thpt,A00,28.66,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EE2,Kỹ thuật Điều khiển - Tự động hoá,thpt,A00,28.48,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,MS2,Kỹ thuật Vi điện tử và Công nghệ nano,thpt,A00,28.25,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EE-E8,Kỹ thuật Điều khiển - Tự động hoá (CT tiên tiến),thpt,A00,28.12,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ET1,Kỹ thuật Điện tử - Viễn thông,thpt,A00,28.07,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,IT-E6,Công nghệ thông tin (Việt - Nhật),thpt,A00,27.97,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ME1,Kỹ thuật Cơ điện tử,thpt,A00,27.90,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ET-E9,Hệ thống nhúng thông minh và IoT (CT tiên tiến),thpt,A00,27.85,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,IT-EP,Công nghệ thông tin (Việt - Pháp),thpt,A00,27.83,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,MI1,Toán - Tin,thpt,A00,27.80,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,MI2,Hệ thống thông tin quản lý,thpt,A00,27.72,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EE1,Kỹ thuật Điện,thpt,A00,27.55,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ET-E4,Kỹ thuật Điện tử - Viễn thông (CT tiên tiến),thpt,A00,27.55,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EE-EP,Tin học công nghiệp và Tự động hóa (Chương trình Việt - Pháp PFIEV),thpt,A00,27.27,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,TE1,Kỹ thuật Ô tô,thpt,A00,27.03,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ME-E1,Kỹ thuật Cơ điện tử (CT tiên tiến),thpt,A00,26.74,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ET-E16,Truyền thông số và Kỹ thuật đa phương tiện (CT tiên tiến),thpt,A00,26.62,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ME2,Kỹ thuật Cơ khí,thpt,A00,26.62,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,TE3,Kỹ thuật Hàng không,thpt,A00,26.60,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EE-E18,Hệ thống điện và năng lượng tái tạo (CT tiên tiến),thpt,A00,26.56,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ET-LUH,Điện tử - Viễn thông - hợp tác với ĐH Leibniz Hannover (Đức),thpt,A00,26.55,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,PH1,Vật lý kỹ thuật,thpt,A00,26.41,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ET2,Kỹ thuật Y sinh,thpt,A00,26.32,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,TE2,Kỹ thuật Cơ khí động lực,thpt,A00,26.25,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ME-LUH,Cơ điện tử - hợp tác với ĐH Leibniz Hannover (Đức),thpt,A00,26.19,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,TE-EP,Cơ khí hàng không (Chương trình Việt - Pháp PFIEV),thpt,A00,25.84,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ME-NUT,Cơ điện tử - hợp tác với ĐH Công nghệ Nagaoka (Nhật Bản),thpt,A00,25.68,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ET-E5,Kỹ thuật Y sinh (CT tiên tiến),thpt,A00,25.58,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,HE1,Kỹ thuật Nhiệt,thpt,A00,25.47,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,MS1,Kỹ thuật Vật liệu,thpt,A00,25.39,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,PH3,Vật lý Y khoa,thpt,A00,25.20,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,TE-E2,Kỹ thuật Ô tô (CT tiên tiến),thpt,A00,25.18,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,MS3,Công nghệ vật liệu Polyme và Compozit,thpt,A00,25.16,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,PH2,Kỹ thuật hạt nhân,thpt,A00,25.07,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ME-GU,Cơ khí - Chế tạo máy - hợp tác với ĐH Griffith (Úc),thpt,A00,25.00,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,MS5,Kỹ thuật in,thpt,A00,24.06,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,CH1,Kỹ thuật Hoá học,thpt,A00,24.05,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,MS-E3,Khoa học và kỹ thuật vật liệu (CT tiên tiến),thpt,A00,23.70,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,BF2,Kỹ thuật Thực phẩm,thpt,A00,23.38,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,CH2,Hoá học,thpt,A00,23.19,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,BF1,Kỹ thuật Sinh học,thpt,A00,23.02,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,TX1,Công nghệ Dệt - May,thpt,A00,22.48,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EV1,Kỹ thuật Môi trường,thpt,A00,22.22,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EV2,Quản lý Tài nguyên và Môi trường,thpt,A00,21.53,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,CH-E11,Kỹ thuật Hóa dược (CT tiên tiến),thpt,A00,21.38,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,BF-E12,Kỹ thuật Thực phẩm (CT tiên tiến),thpt,A00,21.00,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,BF-E19,Kỹ thuật sinh học (CT tiên tiến),thpt,A00,20.00,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,FL3,Tiếng Trung KHKT và Công nghệ,thpt,D01,24.86,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EM3,Quản trị kinh doanh,thpt,D01,24.30,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EM5,Tài chính - Ngân hàng,thpt,D01,24.30,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,FL1,Tiếng Anh KHKT và Công nghệ,thpt,D01,24.30,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,FL2,Tiếng Anh chuyên nghiệp quốc tế,thpt,D01,24.30,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EM4,Kế toán,thpt,D01,24.13,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EM2,Quản lý công nghiệp,thpt,D01,23.90,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EM-E14,Logistics và Quản lý chuỗi cung ứng (CT tiên tiến),thpt,D01,23.71,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EM1,Quản lý năng lượng,thpt,D01,23.70,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ED2,Công nghệ giáo dục,thpt,D01,23.30,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,ED3,Quản lý giáo dục,thpt,D01,23.20,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,EM-E13,Phân tích kinh doanh (CT tiên tiến),thpt,D01,23.06,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,TROY-IT,Khoa học máy tính - hợp tác với ĐH Troy (Hoa Kỳ),thpt,D01,21.30,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,TROY-BA,Quản trị kinh doanh - hợp tác với ĐH Troy (Hoa Kỳ),thpt,D01,19.00,30,bka-2025,"Tổ hợp gốc; các tổ hợp khác lệch tối đa 0,5 điểm theo bảng độ lệch trong nguồn"
+2025,IT-E10,Khoa học dữ liệu và Trí tuệ nhân tạo (CT tiên tiến),tsa,,86.97,100,bka-2025,
+2025,IT1,CNTT: Khoa học Máy tính,tsa,,83.39,100,bka-2025,
+2025,IT2,CNTT: Kỹ thuật Máy tính,tsa,,79.86,100,bka-2025,
+2025,IT-E15,An toàn không gian số - Cyber Security (CT Tiên tiến),tsa,,78.49,100,bka-2025,
+2025,IT-E7,Công nghệ thông tin (Global ICT),tsa,,78.19,100,bka-2025,
+2025,EE2,Kỹ thuật Điều khiển - Tự động hoá,tsa,,76.43,100,bka-2025,
+2025,MS2,Kỹ thuật Vi điện tử và Công nghệ nano,tsa,,74.76,100,bka-2025,
+2025,EE-E8,Kỹ thuật Điều khiển - Tự động hoá (CT tiên tiến),tsa,,73.86,100,bka-2025,
+2025,ET1,Kỹ thuật Điện tử - Viễn thông,tsa,,73.51,100,bka-2025,
+2025,IT-E6,Công nghệ thông tin (Việt - Nhật),tsa,,72.81,100,bka-2025,
+2025,ME1,Kỹ thuật Cơ điện tử,tsa,,72.32,100,bka-2025,
+2025,ET-E9,Hệ thống nhúng thông minh và IoT (CT tiên tiến),tsa,,71.97,100,bka-2025,
+2025,IT-EP,Công nghệ thông tin (Việt - Pháp),tsa,,71.83,100,bka-2025,
+2025,MI1,Toán - Tin,tsa,,71.62,100,bka-2025,
+2025,MI2,Hệ thống thông tin quản lý,tsa,,71.07,100,bka-2025,
+2025,EE1,Kỹ thuật Điện,tsa,,69.88,100,bka-2025,
+2025,ET-E4,Kỹ thuật Điện tử - Viễn thông (CT tiên tiến),tsa,,69.88,100,bka-2025,
+2025,EE-EP,Tin học công nghiệp và Tự động hóa (Chương trình Việt - Pháp PFIEV),tsa,,68.73,100,bka-2025,
+2025,TE1,Kỹ thuật Ô tô,tsa,,67.74,100,bka-2025,
+2025,ME-E1,Kỹ thuật Cơ điện tử (CT tiên tiến),tsa,,66.54,100,bka-2025,
+2025,ET-E16,Truyền thông số và Kỹ thuật đa phương tiện (CT tiên tiến),tsa,,66.05,100,bka-2025,
+2025,ME2,Kỹ thuật Cơ khí,tsa,,66.05,100,bka-2025,
+2025,TE3,Kỹ thuật Hàng không,tsa,,65.97,100,bka-2025,
+2025,EE-E18,Hệ thống điện và năng lượng tái tạo (CT tiên tiến),tsa,,65.80,100,bka-2025,
+2025,ET-LUH,Điện tử - Viễn thông - hợp tác với ĐH Leibniz Hannover (Đức),tsa,,65.76,100,bka-2025,
+2025,PH1,Vật lý kỹ thuật,tsa,,65.19,100,bka-2025,
+2025,ET2,Kỹ thuật Y sinh,tsa,,64.82,100,bka-2025,
+2025,TE2,Kỹ thuật Cơ khí động lực,tsa,,64.53,100,bka-2025,
+2025,ME-LUH,Cơ điện tử - hợp tác với ĐH Leibniz Hannover (Đức),tsa,,64.28,100,bka-2025,
+2025,TE-EP,Cơ khí hàng không (Chương trình Việt - Pháp PFIEV),tsa,,62.84,100,bka-2025,
+2025,ME-NUT,Cơ điện tử - hợp tác với ĐH Công nghệ Nagaoka (Nhật Bản),tsa,,62.18,100,bka-2025,
+2025,ET-E5,Kỹ thuật Y sinh (CT tiên tiến),tsa,,61.77,100,bka-2025,
+2025,HE1,Kỹ thuật Nhiệt,tsa,,61.32,100,bka-2025,
+2025,MS1,Kỹ thuật Vật liệu,tsa,,60.99,100,bka-2025,
+2025,PH3,Vật lý Y khoa,tsa,,60.20,100,bka-2025,
+2025,TE-E2,Kỹ thuật Ô tô (CT tiên tiến),tsa,,60.12,100,bka-2025,
+2025,MS3,Công nghệ vật liệu Polyme và Compozit,tsa,,60.04,100,bka-2025,
+2025,PH2,Kỹ thuật hạt nhân,tsa,,59.68,100,bka-2025,
+2025,ME-GU,Cơ khí - Chế tạo máy - hợp tác với ĐH Griffith (Úc),tsa,,59.49,100,bka-2025,
+2025,MS5,Kỹ thuật in,tsa,,56.88,100,bka-2025,
+2025,CH1,Kỹ thuật Hoá học,tsa,,56.86,100,bka-2025,
+2025,MS-E3,Khoa học và kỹ thuật vật liệu (CT tiên tiến),tsa,,55.89,100,bka-2025,
+2025,BF2,Kỹ thuật Thực phẩm,tsa,,55.05,100,bka-2025,
+2025,CH2,Hoá học,tsa,,54.66,100,bka-2025,
+2025,BF1,Kỹ thuật Sinh học,tsa,,54.30,100,bka-2025,
+2025,TX1,Công nghệ Dệt - May,tsa,,53.17,100,bka-2025,
+2025,EV1,Kỹ thuật Môi trường,tsa,,52.63,100,bka-2025,
+2025,EV2,Quản lý Tài nguyên và Môi trường,tsa,,51.19,100,bka-2025,
+2025,CH-E11,Kỹ thuật Hóa dược (CT tiên tiến),tsa,,50.88,100,bka-2025,
+2025,BF-E12,Kỹ thuật Thực phẩm (CT tiên tiến),tsa,,50.08,100,bka-2025,
+2025,BF-E19,Kỹ thuật sinh học (CT tiên tiến),tsa,,47.99,100,bka-2025,
+2025,FL3,Tiếng Trung KHKT và Công nghệ,tsa,,68.14,100,bka-2025,
+2025,EM3,Quản trị kinh doanh,tsa,,65.81,100,bka-2025,
+2025,EM5,Tài chính - Ngân hàng,tsa,,65.81,100,bka-2025,
+2025,FL1,Tiếng Anh KHKT và Công nghệ,tsa,,65.81,100,bka-2025,
+2025,FL2,Tiếng Anh chuyên nghiệp quốc tế,tsa,,65.81,100,bka-2025,
+2025,EM4,Kế toán,tsa,,65.11,100,bka-2025,
+2025,EM2,Quản lý công nghiệp,tsa,,64.15,100,bka-2025,
+2025,EM-E14,Logistics và Quản lý chuỗi cung ứng (CT tiên tiến),tsa,,63.36,100,bka-2025,
+2025,EM1,Quản lý năng lượng,tsa,,63.32,100,bka-2025,
+2025,ED2,Công nghệ giáo dục,tsa,,61.66,100,bka-2025,
+2025,ED3,Quản lý giáo dục,tsa,,61.25,100,bka-2025,
+2025,EM-E13,Phân tích kinh doanh (CT tiên tiến),tsa,,60.66,100,bka-2025,
+2025,TROY-IT,Khoa học máy tính - hợp tác với ĐH Troy (Hoa Kỳ),tsa,,54.07,100,bka-2025,
+2025,TROY-BA,Quản trị kinh doanh - hợp tác với ĐH Troy (Hoa Kỳ),tsa,,46.48,100,bka-2025,
+2025,IT-E10,Khoa học dữ liệu và Trí tuệ nhân tạo (CT tiên tiến),xttn_chung_chi,,93.18,100,bka-2025,
+2025,IT1,CNTT: Khoa học Máy tính,xttn_chung_chi,,90.61,100,bka-2025,
+2025,IT2,CNTT: Kỹ thuật Máy tính,xttn_chung_chi,,84.64,100,bka-2025,
+2025,IT-E15,An toàn không gian số - Cyber Security (CT Tiên tiến),xttn_chung_chi,,82.32,100,bka-2025,
+2025,IT-E7,Công nghệ thông tin (Global ICT),xttn_chung_chi,,81.82,100,bka-2025,
+2025,EE2,Kỹ thuật Điều khiển - Tự động hoá,xttn_chung_chi,,78.83,100,bka-2025,
+2025,MS2,Kỹ thuật Vi điện tử và Công nghệ nano,xttn_chung_chi,,77.20,100,bka-2025,
+2025,EE-E8,Kỹ thuật Điều khiển - Tự động hoá (CT tiên tiến),xttn_chung_chi,,76.40,100,bka-2025,
+2025,ET1,Kỹ thuật Điện tử - Viễn thông,xttn_chung_chi,,76.09,100,bka-2025,
+2025,IT-E6,Công nghệ thông tin (Việt - Nhật),xttn_chung_chi,,75.47,100,bka-2025,
+2025,ME1,Kỹ thuật Cơ điện tử,xttn_chung_chi,,75.04,100,bka-2025,
+2025,ET-E9,Hệ thống nhúng thông minh và IoT (CT tiên tiến),xttn_chung_chi,,74.73,100,bka-2025,
+2025,IT-EP,Công nghệ thông tin (Việt - Pháp),xttn_chung_chi,,74.61,100,bka-2025,
+2025,MI1,Toán - Tin,xttn_chung_chi,,74.42,100,bka-2025,
+2025,MI2,Hệ thống thông tin quản lý,xttn_chung_chi,,73.93,100,bka-2025,
+2025,EE1,Kỹ thuật Điện,xttn_chung_chi,,72.88,100,bka-2025,
+2025,ET-E4,Kỹ thuật Điện tử - Viễn thông (CT tiên tiến),xttn_chung_chi,,72.88,100,bka-2025,
+2025,EE-EP,Tin học công nghiệp và Tự động hóa (Chương trình Việt - Pháp PFIEV),xttn_chung_chi,,70.85,100,bka-2025,
+2025,TE1,Kỹ thuật Ô tô,xttn_chung_chi,,69.12,100,bka-2025,
+2025,ME-E1,Kỹ thuật Cơ điện tử (CT tiên tiến),xttn_chung_chi,,67.02,100,bka-2025,
+2025,ET-E16,Truyền thông số và Kỹ thuật đa phương tiện (CT tiên tiến),xttn_chung_chi,,66.15,100,bka-2025,
+2025,ME2,Kỹ thuật Cơ khí,xttn_chung_chi,,66.15,100,bka-2025,
+2025,TE3,Kỹ thuật Hàng không,xttn_chung_chi,,66.00,100,bka-2025,
+2025,EE-E18,Hệ thống điện và năng lượng tái tạo (CT tiên tiến),xttn_chung_chi,,65.71,100,bka-2025,
+2025,ET-LUH,Điện tử - Viễn thông - hợp tác với ĐH Leibniz Hannover (Đức),xttn_chung_chi,,65.64,100,bka-2025,
+2025,PH1,Vật lý kỹ thuật,xttn_chung_chi,,64.63,100,bka-2025,
+2025,ET2,Kỹ thuật Y sinh,xttn_chung_chi,,63.98,100,bka-2025,
+2025,TE2,Kỹ thuật Cơ khí động lực,xttn_chung_chi,,63.47,100,bka-2025,
+2025,ME-LUH,Cơ điện tử - hợp tác với ĐH Leibniz Hannover (Đức),xttn_chung_chi,,63.04,100,bka-2025,
+2025,TE-EP,Cơ khí hàng không (Chương trình Việt - Pháp PFIEV),xttn_chung_chi,,60.50,100,bka-2025,
+2025,ME-NUT,Cơ điện tử - hợp tác với ĐH Công nghệ Nagaoka (Nhật Bản),xttn_chung_chi,,59.34,100,bka-2025,
+2025,ET-E5,Kỹ thuật Y sinh (CT tiên tiến),xttn_chung_chi,,58.62,100,bka-2025,
+2025,HE1,Kỹ thuật Nhiệt,xttn_chung_chi,,57.82,100,bka-2025,
+2025,MS1,Kỹ thuật Vật liệu,xttn_chung_chi,,57.24,100,bka-2025,
+2025,PH3,Vật lý Y khoa,xttn_chung_chi,,55.87,100,bka-2025,
+2025,TE-E2,Kỹ thuật Ô tô (CT tiên tiến),xttn_chung_chi,,55.72,100,bka-2025,
+2025,MS3,Công nghệ vật liệu Polyme và Compozit,xttn_chung_chi,,55.58,100,bka-2025,
+2025,PH2,Kỹ thuật hạt nhân,xttn_chung_chi,,55.00,100,bka-2025,
+2025,ME-GU,Cơ khí - Chế tạo máy - hợp tác với ĐH Griffith (Úc),xttn_chung_chi,,55.00,100,bka-2025,
+2025,MS5,Kỹ thuật in,xttn_chung_chi,,55.00,100,bka-2025,
+2025,CH1,Kỹ thuật Hoá học,xttn_chung_chi,,55.00,100,bka-2025,
+2025,MS-E3,Khoa học và kỹ thuật vật liệu (CT tiên tiến),xttn_chung_chi,,55.00,100,bka-2025,
+2025,BF2,Kỹ thuật Thực phẩm,xttn_chung_chi,,55.00,100,bka-2025,
+2025,CH2,Hoá học,xttn_chung_chi,,55.00,100,bka-2025,
+2025,BF1,Kỹ thuật Sinh học,xttn_chung_chi,,55.00,100,bka-2025,
+2025,TX1,Công nghệ Dệt - May,xttn_chung_chi,,55.00,100,bka-2025,
+2025,EV1,Kỹ thuật Môi trường,xttn_chung_chi,,55.00,100,bka-2025,
+2025,EV2,Quản lý Tài nguyên và Môi trường,xttn_chung_chi,,55.00,100,bka-2025,
+2025,CH-E11,Kỹ thuật Hóa dược (CT tiên tiến),xttn_chung_chi,,55.00,100,bka-2025,
+2025,BF-E12,Kỹ thuật Thực phẩm (CT tiên tiến),xttn_chung_chi,,55.00,100,bka-2025,
+2025,BF-E19,Kỹ thuật sinh học (CT tiên tiến),xttn_chung_chi,,55.00,100,bka-2025,
+2025,FL3,Tiếng Trung KHKT và Công nghệ,xttn_chung_chi,,69.81,100,bka-2025,
+2025,EM3,Quản trị kinh doanh,xttn_chung_chi,,65.73,100,bka-2025,
+2025,EM5,Tài chính - Ngân hàng,xttn_chung_chi,,65.73,100,bka-2025,
+2025,FL1,Tiếng Anh KHKT và Công nghệ,xttn_chung_chi,,65.73,100,bka-2025,
+2025,FL2,Tiếng Anh chuyên nghiệp quốc tế,xttn_chung_chi,,65.73,100,bka-2025,
+2025,EM4,Kế toán,xttn_chung_chi,,64.49,100,bka-2025,
+2025,EM2,Quản lý công nghiệp,xttn_chung_chi,,62.81,100,bka-2025,
+2025,EM-E14,Logistics và Quản lý chuỗi cung ứng (CT tiên tiến),xttn_chung_chi,,61.42,100,bka-2025,
+2025,EM1,Quản lý năng lượng,xttn_chung_chi,,61.35,100,bka-2025,
+2025,ED2,Công nghệ giáo dục,xttn_chung_chi,,58.43,100,bka-2025,
+2025,ED3,Quản lý giáo dục,xttn_chung_chi,,57.70,100,bka-2025,
+2025,EM-E13,Phân tích kinh doanh (CT tiên tiến),xttn_chung_chi,,56.68,100,bka-2025,
+2025,TROY-IT,Khoa học máy tính - hợp tác với ĐH Troy (Hoa Kỳ),xttn_chung_chi,,55.00,100,bka-2025,
+2025,TROY-BA,Quản trị kinh doanh - hợp tác với ĐH Troy (Hoa Kỳ),xttn_chung_chi,,55.00,100,bka-2025,
+2025,IT-E10,Khoa học dữ liệu và Trí tuệ nhân tạo (CT tiên tiến),xttn_ho_so,,95.64,100,bka-2025,
+2025,IT1,CNTT: Khoa học Máy tính,xttn_ho_so,,93.92,100,bka-2025,
+2025,IT2,CNTT: Kỹ thuật Máy tính,xttn_ho_so,,89.62,100,bka-2025,
+2025,IT-E15,An toàn không gian số - Cyber Security (CT Tiên tiến),xttn_ho_so,,87.95,100,bka-2025,
+2025,IT-E7,Công nghệ thông tin (Global ICT),xttn_ho_so,,87.59,100,bka-2025,
+2025,EE2,Kỹ thuật Điều khiển - Tự động hoá,xttn_ho_so,,85.44,100,bka-2025,
+2025,MS2,Kỹ thuật Vi điện tử và Công nghệ nano,xttn_ho_so,,80.90,100,bka-2025,
+2025,EE-E8,Kỹ thuật Điều khiển - Tự động hoá (CT tiên tiến),xttn_ho_so,,78.24,100,bka-2025,
+2025,ET1,Kỹ thuật Điện tử - Viễn thông,xttn_ho_so,,77.22,100,bka-2025,
+2025,IT-E6,Công nghệ thông tin (Việt - Nhật),xttn_ho_so,,75.17,100,bka-2025,
+2025,ME1,Kỹ thuật Cơ điện tử,xttn_ho_so,,73.74,100,bka-2025,
+2025,ET-E9,Hệ thống nhúng thông minh và IoT (CT tiên tiến),xttn_ho_so,,72.71,100,bka-2025,
+2025,IT-EP,Công nghệ thông tin (Việt - Pháp),xttn_ho_so,,72.30,100,bka-2025,
+2025,MI1,Toán - Tin,xttn_ho_so,,71.69,100,bka-2025,
+2025,MI2,Hệ thống thông tin quản lý,xttn_ho_so,,70.05,100,bka-2025,
+2025,EE1,Kỹ thuật Điện,xttn_ho_so,,66.57,100,bka-2025,
+2025,ET-E4,Kỹ thuật Điện tử - Viễn thông (CT tiên tiến),xttn_ho_so,,66.57,100,bka-2025,
+2025,EE-EP,Tin học công nghiệp và Tự động hóa (Chương trình Việt - Pháp PFIEV),xttn_ho_so,,65.26,100,bka-2025,
+2025,TE1,Kỹ thuật Ô tô,xttn_ho_so,,64.13,100,bka-2025,
+2025,ME-E1,Kỹ thuật Cơ điện tử (CT tiên tiến),xttn_ho_so,,62.78,100,bka-2025,
+2025,ET-E16,Truyền thông số và Kỹ thuật đa phương tiện (CT tiên tiến),xttn_ho_so,,62.21,100,bka-2025,
+2025,ME2,Kỹ thuật Cơ khí,xttn_ho_so,,62.21,100,bka-2025,
+2025,TE3,Kỹ thuật Hàng không,xttn_ho_so,,62.12,100,bka-2025,
+2025,EE-E18,Hệ thống điện và năng lượng tái tạo (CT tiên tiến),xttn_ho_so,,61.93,100,bka-2025,
+2025,ET-LUH,Điện tử - Viễn thông - hợp tác với ĐH Leibniz Hannover (Đức),xttn_ho_so,,61.89,100,bka-2025,
+2025,PH1,Vật lý kỹ thuật,xttn_ho_so,,61.23,100,bka-2025,
+2025,ET2,Kỹ thuật Y sinh,xttn_ho_so,,60.81,100,bka-2025,
+2025,TE2,Kỹ thuật Cơ khí động lực,xttn_ho_so,,60.48,100,bka-2025,
+2025,ME-LUH,Cơ điện tử - hợp tác với ĐH Leibniz Hannover (Đức),xttn_ho_so,,60.20,100,bka-2025,
+2025,TE-EP,Cơ khí hàng không (Chương trình Việt - Pháp PFIEV),xttn_ho_so,,58.56,100,bka-2025,
+2025,ME-NUT,Cơ điện tử - hợp tác với ĐH Công nghệ Nagaoka (Nhật Bản),xttn_ho_so,,57.81,100,bka-2025,
+2025,ET-E5,Kỹ thuật Y sinh (CT tiên tiến),xttn_ho_so,,57.34,100,bka-2025,
+2025,HE1,Kỹ thuật Nhiệt,xttn_ho_so,,56.83,100,bka-2025,
+2025,MS1,Kỹ thuật Vật liệu,xttn_ho_so,,56.45,100,bka-2025,
+2025,PH3,Vật lý Y khoa,xttn_ho_so,,55.56,100,bka-2025,
+2025,TE-E2,Kỹ thuật Ô tô (CT tiên tiến),xttn_ho_so,,55.47,100,bka-2025,
+2025,MS3,Công nghệ vật liệu Polyme và Compozit,xttn_ho_so,,55.37,100,bka-2025,
+2025,PH2,Kỹ thuật hạt nhân,xttn_ho_so,,55.00,100,bka-2025,
+2025,ME-GU,Cơ khí - Chế tạo máy - hợp tác với ĐH Griffith (Úc),xttn_ho_so,,55.00,100,bka-2025,
+2025,MS5,Kỹ thuật in,xttn_ho_so,,55.00,100,bka-2025,
+2025,CH1,Kỹ thuật Hoá học,xttn_ho_so,,55.00,100,bka-2025,
+2025,MS-E3,Khoa học và kỹ thuật vật liệu (CT tiên tiến),xttn_ho_so,,55.00,100,bka-2025,
+2025,BF2,Kỹ thuật Thực phẩm,xttn_ho_so,,55.00,100,bka-2025,
+2025,CH2,Hoá học,xttn_ho_so,,55.00,100,bka-2025,
+2025,BF1,Kỹ thuật Sinh học,xttn_ho_so,,55.00,100,bka-2025,
+2025,TX1,Công nghệ Dệt - May,xttn_ho_so,,55.00,100,bka-2025,
+2025,EV1,Kỹ thuật Môi trường,xttn_ho_so,,55.00,100,bka-2025,
+2025,EV2,Quản lý Tài nguyên và Môi trường,xttn_ho_so,,55.00,100,bka-2025,
+2025,CH-E11,Kỹ thuật Hóa dược (CT tiên tiến),xttn_ho_so,,55.00,100,bka-2025,
+2025,BF-E12,Kỹ thuật Thực phẩm (CT tiên tiến),xttn_ho_so,,55.00,100,bka-2025,
+2025,BF-E19,Kỹ thuật sinh học (CT tiên tiến),xttn_ho_so,,55.00,100,bka-2025,
+2025,FL3,Tiếng Trung KHKT và Công nghệ,xttn_ho_so,,64.59,100,bka-2025,
+2025,EM3,Quản trị kinh doanh,xttn_ho_so,,61.94,100,bka-2025,
+2025,EM5,Tài chính - Ngân hàng,xttn_ho_so,,61.94,100,bka-2025,
+2025,FL1,Tiếng Anh KHKT và Công nghệ,xttn_ho_so,,61.94,100,bka-2025,
+2025,FL2,Tiếng Anh chuyên nghiệp quốc tế,xttn_ho_so,,61.94,100,bka-2025,
+2025,EM4,Kế toán,xttn_ho_so,,61.14,100,bka-2025,
+2025,EM2,Quản lý công nghiệp,xttn_ho_so,,60.05,100,bka-2025,
+2025,EM-E14,Logistics và Quản lý chuỗi cung ứng (CT tiên tiến),xttn_ho_so,,59.16,100,bka-2025,
+2025,EM1,Quản lý năng lượng,xttn_ho_so,,59.11,100,bka-2025,
+2025,ED2,Công nghệ giáo dục,xttn_ho_so,,57.22,100,bka-2025,
+2025,ED3,Quản lý giáo dục,xttn_ho_so,,56.75,100,bka-2025,
+2025,EM-E13,Phân tích kinh doanh (CT tiên tiến),xttn_ho_so,,56.09,100,bka-2025,
+2025,TROY-IT,Khoa học máy tính - hợp tác với ĐH Troy (Hoa Kỳ),xttn_ho_so,,55.00,100,bka-2025,
+2025,TROY-BA,Quản trị kinh doanh - hợp tác với ĐH Troy (Hoa Kỳ),xttn_ho_so,,55.00,100,bka-2025,
