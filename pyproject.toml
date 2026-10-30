@@ -1,0 +1,39 @@
+[project]
+name = "diem-chuan-vn"
+version = "0.1.0.dev0"
+description = "Open, multi-year dataset of Vietnamese university admission cut-off scores, with a source link for every row."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "HongTin2104" }]
+requires-python = ">=3.11"
+dependencies = ["pandas>=2.2"]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.40", "altair>=5"]
+dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.6"]
+
+[project.scripts]
+diem-chuan-validate = "diem_chuan.validate:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.coverage.run]
+source = ["diem_chuan"]
+branch = true
