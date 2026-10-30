@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 (2026-10-30)
 
 ### Added
 - `python -m diem_chuan.export` writes the whole dataset to one Parquet file, with university,
