@@ -8,6 +8,7 @@ Cut-off scores (điểm chuẩn) of Vietnamese universities, as published by eac
 |---|---|---|
 | `universities.csv` | university | `code` is the ministry code (BKA, QSC, ...) |
 | `methods.csv` | admission method | `thpt`, `dgnl_hcm`, `xt_tong_hop`, ... |
+| `subject_groups.csv` | subject group (tổ hợp) | `A00` = `Toán; Vật lý; Hóa học`, with a link to an official page that defines it |
 | `sources.csv` | official announcement | page link, links to the files (images/PDF, space-separated) if any, date accessed |
 | `scores/<CODE>.csv` | year × major × method × subject groups | one file per university |
 
