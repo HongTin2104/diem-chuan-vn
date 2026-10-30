@@ -102,15 +102,17 @@ with lookup_tab:
         "Trường", sorted(uni_name), format_func=lambda c: f"{uni_name[c]} ({c})", key="lookup_uni"
     )
     rows = scores[scores["university"] == uni]
-    latest = rows.sort_values("year").drop_duplicates("major_code", keep="last")
-    labels = dict(zip(latest["major_code"], latest["major_name"], strict=True))
+    # One entry per programme, under its current code and name, even if the code changed.
+    latest = rows.sort_values("year").drop_duplicates("programme", keep="last")
+    labels = dict(zip(latest["programme"], latest["major_name"], strict=True))
     code = right.selectbox(
         "Ngành / chương trình",
         sorted(labels, key=labels.get),
         format_func=lambda c: f"{labels[c]} ({c})",
+        key="lookup_programme",
     )
 
-    picked_rows = rows[rows["major_code"] == code]
+    picked_rows = rows[rows["programme"] == code]
     for method in picked_rows["method"].unique():
         h = history(scores, uni, code, method)
         scale = h["scale"].iloc[0]
@@ -122,7 +124,7 @@ with lookup_tab:
                 .encode(
                     x=alt.X("year:O", title="Năm", axis=alt.Axis(labelAngle=0)),
                     y=alt.Y("score:Q", title="Điểm chuẩn", scale=alt.Scale(zero=False)),
-                    tooltip=["year", "score", "subject_groups"],
+                    tooltip=["year", "major_code", "score", "subject_groups"],
                 )
                 .properties(height=220)
             )
@@ -131,6 +133,7 @@ with lookup_tab:
             h.rename(
                 columns={
                     "year": "Năm",
+                    "major_code": "Mã",
                     "score": "Điểm chuẩn",
                     "scale": "Thang",
                     "subject_groups": "Tổ hợp",

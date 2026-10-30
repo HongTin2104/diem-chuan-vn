@@ -6,6 +6,9 @@
 - `data/subject_groups.csv` lists the subjects of every subject group used in the scores (A00 =
   Toán; Vật lý; Hóa học), each with a link to an official page that defines it.
   `diem_chuan.validate` reports a group that is not in it (#3).
+- `data/programme_aliases.csv` links programme codes that changed between years (6 programmes at
+  HUST and UIT). `load_scores()` and the Parquet export add a `programme` column with the current
+  code; programme history, suggestions and trends in the app now span the code change (#4).
 
 ## 0.2.0 (2026-10-30)
 

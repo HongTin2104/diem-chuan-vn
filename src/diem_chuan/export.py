@@ -23,6 +23,7 @@ COLUMNS = [
     "year",
     "major_code",
     "major_name",
+    "programme",
     "method",
     "method_name_vi",
     "method_name_en",
