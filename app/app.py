@@ -54,7 +54,10 @@ with suggest_tab:
         step=0.25,
     )
     picked = right.multiselect(
-        "Trường", sorted(uni_name), format_func=lambda c: f"{uni_name[c]} ({c})"
+        "Trường",
+        sorted(uni_name),
+        format_func=lambda c: f"{uni_name[c]} ({c})",
+        placeholder="Tất cả các trường",
     )
 
     found = suggest(scores, score, method, scale, picked or None)
@@ -117,7 +120,7 @@ with lookup_tab:
                 alt.Chart(h)
                 .mark_line(point=True)
                 .encode(
-                    x=alt.X("year:O", title="Năm"),
+                    x=alt.X("year:O", title="Năm", axis=alt.Axis(labelAngle=0)),
                     y=alt.Y("score:Q", title="Điểm chuẩn", scale=alt.Scale(zero=False)),
                     tooltip=["year", "score", "subject_groups"],
                 )
