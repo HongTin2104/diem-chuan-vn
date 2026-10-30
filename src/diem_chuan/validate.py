@@ -117,8 +117,9 @@ def _check_sources(
         last = int(years.group(2) or first)
         if not row["page_url"].startswith(("https://", "http://")):
             report.add(path, i, "page_url must be a link to the official page")
-        if row["file_url"] and not row["file_url"].startswith(("https://", "http://")):
-            report.add(path, i, "file_url must be a link or empty")
+        # Several images of one announcement are listed space-separated.
+        if any(not u.startswith(("https://", "http://")) for u in row["file_url"].split()):
+            report.add(path, i, "file_url must be empty or links separated by spaces")
         if row["format"] not in schema.SOURCE_FORMATS:
             report.add(path, i, f"format must be one of {sorted(schema.SOURCE_FORMATS)}")
         if not schema.DATE_RE.match(row["accessed"]):

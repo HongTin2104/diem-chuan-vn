@@ -107,6 +107,16 @@ def test_source_checks(tmp_path):
         assert any(message in e for e in errors), errors
 
 
+@pytest.mark.parametrize(
+    ("file_url", "ok"),
+    [("https://x.vn/a.png https://x.vn/b.png", True), ("https://x.vn/a.png ftp://x/b", False)],
+)
+def test_several_file_urls(tmp_path, file_url, ok):
+    sources = SOURCES.replace("/x,,image", f"/x,{file_url},image")
+    errors = validate(make_data(tmp_path, sources=sources))
+    assert (errors == []) is ok, errors
+
+
 def test_main_exit_codes(tmp_path, capsys):
     assert main([str(make_data(tmp_path / "ok"))]) == 0
     assert "OK: 1 score file" in capsys.readouterr().out
