@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Added
+- `data/subject_groups.csv` lists the subjects of every subject group used in the scores (A00 =
+  Toán; Vật lý; Hóa học), each with a link to an official page that defines it.
+  `diem_chuan.validate` reports a group that is not in it (#3).
+
 ## 0.2.0 (2026-10-30)
 
 ### Added

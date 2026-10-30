@@ -35,7 +35,9 @@ By taking part you agree to the [code of conduct](CODE_OF_CONDUCT.md).
    - `method` must exist in `data/methods.csv`. If the university uses a new method, add it
      there with a Vietnamese and an English name.
    - `scale` is the maximum of the scale the score is on: 30, 40, 100, 150, 1200...
-   - `subject_groups` stays empty if the announcement does not list them.
+   - `subject_groups` stays empty if the announcement does not list them. Every group must be in
+     `data/subject_groups.csv`; if it is not, add it with its subjects (`Toán; Vật lý; Tiếng Đức`)
+     and a link to an official page that defines it, such as the university's admission scheme.
    - Put anything the columns cannot hold in `note`.
 5. **Check** before opening the pull request:
 
@@ -113,7 +115,8 @@ request, không cần biết code.
 2. Thêm một dòng nguồn vào `data/sources.csv`.
 3. Nếu là trường mới, thêm trường vào `data/universities.csv` (mã trường theo Bộ GD&ĐT).
 4. Nhập điểm vào `data/scores/<MÃ_TRƯỜNG>.csv`. Giữ nguyên mã và tên ngành như trong thông báo. Số
-   thập phân dùng dấu chấm. Ghi rõ thang điểm.
+   thập phân dùng dấu chấm. Ghi rõ thang điểm. Tổ hợp nào chưa có trong `data/subject_groups.csv`
+   thì thêm vào, kèm các môn và link tới trang chính thức định nghĩa tổ hợp đó.
 5. Chạy `python -m diem_chuan.validate` và `pytest -q`, sửa đến khi không còn lỗi. Khi mở pull
    request, CI sẽ tự chạy lại các bước này, cùng với lint, CodeQL và kiểm tra tiêu đề (theo dạng
    `data: add FTU 2025`).

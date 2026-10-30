@@ -134,7 +134,7 @@ python -m diem_chuan.export    # writes dist/hf/diem_chuan.parquet and a Hugging
 
 ```
 data/
-  universities.csv  methods.csv  sources.csv
+  universities.csv  methods.csv  sources.csv  subject_groups.csv
   scores/<CODE>.csv     one file per university
   DATASET.md            data card
 src/diem_chuan/
