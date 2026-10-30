@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.1 (2026-10-30)
+
+No data changes.
+
+### Fixed
+- `diem_chuan.validate` checks that each source id is `<lower-case university>-<years>`, so a
+  misnamed source is reported instead of passing silently (#13, thanks @Golden007-prog).
+
+### Project
+- Tests cover fetching, robots.txt, every validator check and the CLIs; CI fails below 95% coverage.
+- CI runs on Python 3.11-3.13 with CodeQL, pre-commit lint, PR title and label checks, and a
+  summary of data changes on each pull request.
+- Citation file, code of conduct, security policy, contributing guide and a first EDA notebook.
+
 ## 0.1.0 (2026-10-30)
 
 First release.
