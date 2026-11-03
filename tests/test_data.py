@@ -16,7 +16,8 @@ def test_every_source_is_used():
 def test_scores_stay_within_their_scale():
     df = load_scores()
     assert (df["score"] <= df["scale"]).all()
-    assert set(df.loc[df["method"] == "thpt", "scale"]) == {30.0}
+    # 2022 used scale 40 for programmes where English was weighted ×2; 2023+ is uniformly 30.
+    assert set(df.loc[df["method"] == "thpt", "scale"]) <= {30.0, 40.0}
 
 
 def test_empty_data_folder_loads_as_empty_frame(tmp_path):
