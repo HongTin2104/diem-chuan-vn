@@ -1,4 +1,64 @@
 year,major_code,major_name,method,subject_groups,score,scale,source,note
+2022,7310101_1,Kinh tế học (ngành Kinh tế),thpt,A00 A01 D01 D07,27.45,30,kha-2022,
+2022,7310101_2,Kinh tế và quản lý đô thị (ngành Kinh tế),thpt,A00 A01 D01 D07,26.9,30,kha-2022,
+2022,7310101_3,Kinh tế và quản lý nguồn nhân lực (ngành Kinh tế),thpt,A00 A01 D01 D07,27.65,30,kha-2022,
+2022,7310104,Kinh tế đầu tư,thpt,A00 A01 D01 B00,27.5,30,kha-2022,
+2022,7310105,Kinh tế phát triển,thpt,A00 A01 D01 D07,27.5,30,kha-2022,
+2022,7310106,Kinh tế quốc tế,thpt,A00 A01 D01 D07,27.75,30,kha-2022,
+2022,7310107,Thống kê kinh tế,thpt,A00 A01 D01 D07,27.2,30,kha-2022,
+2022,7310108,Toán kinh tế,thpt,A00 A01 D01 D07,27.15,30,kha-2022,
+2022,7320108,Quan hệ công chúng,thpt,,28.6,30,kha-2022,
+2022,7340101,Quản trị kinh doanh,thpt,A00 A01 D01 D07,27.45,30,kha-2022,
+2022,7340115,Marketing,thpt,A00 A01 D01 D07,28.0,30,kha-2022,
+2022,7340116,Bất động sản,thpt,A00 A01 D01 D07,26.65,30,kha-2022,
+2022,7340120,Kinh doanh quốc tế,thpt,A00 A01 D01 D07,28.0,30,kha-2022,
+2022,7340121,Kinh doanh thương mại,thpt,A00 A01 D01 D07,27.7,30,kha-2022,
+2022,7340122,Thương mại điện tử,thpt,A00 A01 D01 D07,28.1,30,kha-2022,
+2022,7340201,Tài chính – Ngân hàng,thpt,A00 A01 D01 D07,27.25,30,kha-2022,
+2022,7340204,Bảo hiểm,thpt,A00 A01 D01 D07,26.4,30,kha-2022,
+2022,7340301,Kế toán,thpt,A00 A01 D01 D07,27.4,30,kha-2022,
+2022,7340302,Kiểm toán,thpt,A00 A01 D01 D07,28.15,30,kha-2022,
+2022,7340401,Khoa học quản lý,thpt,A00 A01 D01 D07,26.85,30,kha-2022,
+2022,7340403,Quản lý công,thpt,A00 A01 D01 D07,26.6,30,kha-2022,
+2022,7340404,Quản trị nhân lực,thpt,A00 A01 D01 D07,27.45,30,kha-2022,
+2022,7340405,Hệ thống thông tin quản lý,thpt,A00 A01 D01 D07,27.5,30,kha-2022,
+2022,7340409,Quản lý dự án,thpt,A00 A01 D01 B00,27.3,30,kha-2022,
+2022,7380101,Luật,thpt,A00 A01 D01 D07,26.3,30,kha-2022,
+2022,7380107,Luật kinh tế,thpt,A00 A01 D01 D07,27.0,30,kha-2022,
+2022,7480101,Khoa học máy tính,thpt,A00 A01 D01 D07,26.7,30,kha-2022,
+2022,7480201,Công nghệ thông tin,thpt,A00 A01 D01 D07,27.0,30,kha-2022,
+2022,7510605,Logistics và Quản lý chuỗi cung ứng,thpt,A00 A01 D01 D07,28.2,30,kha-2022,
+2022,7620114,Kinh doanh nông nghiệp,thpt,A00 A01 D01 B00,26.1,30,kha-2022,
+2022,7620115,Kinh tế nông nghiệp,thpt,A00 A01 D01 B00,26.1,30,kha-2022,
+2022,7810103,Quản trị dịch vụ du lịch và lữ hành,thpt,A00 A01 D01 D07,26.85,30,kha-2022,
+2022,7810201,Quản trị khách sạn,thpt,A00 A01 D01 D07,26.85,30,kha-2022,
+2022,7850101,Quản lý tài nguyên và môi trường,thpt,A00 A01 D01 D07,26.1,30,kha-2022,
+2022,7850102,Kinh tế tài nguyên thiên nhiên,thpt,A00 A01 D01 B00,26.1,30,kha-2022,
+2022,7850103,Quản lý đất đai,thpt,A00 A01 D01 D07,26.2,30,kha-2022,
+2022,EBBA,Quản trị kinh doanh (E-BBA),thpt,A00 A01 D01 D07,26.8,30,kha-2022,
+2022,EP02,Định phí Bảo hiểm & Quản trị rủi ro (Actuary),thpt,A00 A01 D01 D07,26.4,30,kha-2022,
+2022,EP03,Khoa học dữ liệu trong Kinh tế & Kinh doanh (DSEB),thpt,A00 A01 D01 D07,26.5,30,kha-2022,
+2022,EP04,Kế toán tích hợp chứng chỉ quốc tế (ACT-ICAEW),thpt,A00 A01 D01 D07,26.8,30,kha-2022,
+2022,EP05,Kinh doanh số (E-BDB),thpt,A00 A01 D01 D07,26.8,30,kha-2022,
+2022,EP06,Phân tích kinh doanh (BA),thpt,A00 A01 D01 D07,27.2,30,kha-2022,
+2022,EP07,Quản trị điều hành thông minh (E-SOM),thpt,,26.9,30,kha-2022,
+2022,EP08,Quản trị chất lượng và Đổi mới (E-MQI),thpt,,26.45,30,kha-2022,
+2022,EP09,Công nghệ tài chính (BFT),thpt,A00 A01 D01 D07,26.9,30,kha-2022,
+2022,EP12,Kiểm toán tích hợp chứng chỉ quốc tế (AUD-ICAEW),thpt,A00 A01 D01 D07,27.2,30,kha-2022,
+2022,EP13,Kinh tế học tài chính (FE),thpt,A00 A01 D01 D07,26.5,30,kha-2022,
+2022,EPMP,Quản lý công và Chính sách (E-PMP),thpt,A00 A01 D01 D07,26.1,30,kha-2022,
+2022,7220201,Ngôn ngữ Anh,thpt,,35.85,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,EP01,Khởi nghiệp và phát triển kinh doanh (BBAE),thpt,,34.9,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,EP10,Tài chính và Đầu tư (BFI),thpt,,36.25,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,EP11,Quản trị khách sạn quốc tế (IHME),thpt,,34.6,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,EP14,Logistics và Quản lý chuỗi cung ứng tích hợp chứng chỉ quốc tế (LSIC),thpt,,36.25,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,POHE1,Quản trị khách sạn,thpt,,35.35,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,POHE2,Quản trị lữ hành,thpt,,34.8,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,POHE3,Truyền thông Marketing,thpt,,38.15,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,POHE4,Luật kinh doanh,thpt,,35.5,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,POHE5,Quản trị kinh doanh thương mại,thpt,,36.95,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,POHE6,Quản lý thị trường,thpt,,35.0,40,kha-2022,Tiếng Anh nhân hệ số 2
+2022,POHE7,Thẩm định giá,thpt,,35.0,40,kha-2022,Tiếng Anh nhân hệ số 2
 2023,7310101_1,Kinh tế học (ngành Kinh tế),thpt,A00 A01 D01 D07,27.1,30,kha-2023,
 2023,7310101_2,Kinh tế và quản lý đô thị (ngành Kinh tế),thpt,A00 A01 D01 D07,27.05,30,kha-2023,
 2023,7310101_3,Kinh tế và quản lý nguồn nhân lực (ngành Kinh tế),thpt,A00 A01 D01 D07,27.15,30,kha-2023,
